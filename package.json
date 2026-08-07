@@ -1,0 +1,19 @@
+{
+  "name": "bluetooth-checklist-pwa",
+  "version": "1.0.0",
+  "description": "Bluetooth Checklist Progressive Web App (PWA) with offline support, local storage auto-save, and Web Share API / Bluetooth file transfer.",
+  "main": "index.html",
+  "scripts": {
+    "start": "powershell -ExecutionPolicy Bypass -File ./start_server.ps1",
+    "serve": "npx -y serve . -p 8080"
+  },
+  "keywords": [
+    "pwa",
+    "checklist",
+    "bluetooth",
+    "offline",
+    "cruising-boat"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}
