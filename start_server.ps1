@@ -23,7 +23,15 @@ while ($listener.IsListening) {
         
         $filePath = Join-Path (Get-Location) ($urlPath.TrimStart("/").Replace("/", "\"))
         
-        if (Test-Path $filePath -PathType Leaf) {
+        if ($urlPath -eq "/json" -or $urlPath -eq "/json/" -or $urlPath -eq "/json/index.json") {
+            $jsonDir = Join-Path (Get-Location) "json"
+            $files = Get-ChildItem -Path $jsonDir -Filter "*.json" | Where-Object { $_.Name -ne "index.json" } | Select-Object -ExpandProperty Name
+            $jsonList = ConvertTo-Json @($files)
+            $bytes = [System.Text.Encoding]::UTF8.GetBytes($jsonList)
+            $response.ContentType = "application/json"
+            $response.ContentLength64 = $bytes.Length
+            $response.OutputStream.Write($bytes, 0, $bytes.Length)
+        } elseif (Test-Path $filePath -PathType Leaf) {
             $ext = [System.IO.Path]::GetExtension($filePath).ToLower()
             if ($mimeMap.ContainsKey($ext)) {
                 $response.ContentType = $mimeMap[$ext]

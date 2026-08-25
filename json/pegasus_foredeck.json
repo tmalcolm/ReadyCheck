@@ -1,0 +1,152 @@
+{
+    "id":  "pegasus-fore-deck",
+    "title":  "Pegasus Fore Deck Checklists",
+    "createdAt":  "2026-08-25T17:12:00Z",
+    "updatedAt":  "2026-08-25T17:12:00Z",
+    "sublists":  [
+                     {
+                         "id":  "foredeck-checklist",
+                         "name":  "Foredeck Pre-departure Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "fore-1",
+                                           "name":  "Starboard bowline secure on lifeline",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "fore-2",
+                                           "name":  "Turn off 30A circuit breaker- power cord on dock",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "fore-3",
+                                           "name":  "Throw bag clipped to Sampson post",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "fore-4",
+                                           "name":  "Anchors secure and ready",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "fore-5",
+                                           "name":  "Mainmast winch handle in pocket",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "fore-6",
+                                           "name":  "Mainsail cover removed",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "fore-7",
+                                           "name":  "Main halyard trapped and ready to hoist",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "fore-8",
+                                           "name":  "Lazy jacks tightened",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "fore-9",
+                                           "name":  "Assist with starboard springline",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "fore-10",
+                                           "name":  "Close forward portholes",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "foredeck-departure",
+                         "name":  "Foredeck Departure Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "foreo-dep-1",
+                                           "name":  "Cast off port bow line on command",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "foreo-dep-2",
+                                           "name":  "Call out when bow is clear of piling",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "foreo-dep-3",
+                                           "name":  "Coil and secure bow line",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "foredeck-underway",
+                         "name":  "Foredeck Underway Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "foreo-und-1",
+                                           "name":  "Handle main halyard and other lines",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "foreo-und-2",
+                                           "name":  "Coordinate raise/reef/drop of mainsail",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "foreo-und-3",
+                                           "name":  "Maintain forward watch",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "foredeck-docking",
+                         "name":  "Foredeck Docking Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "foreo-doc-1",
+                                           "name":  "Handle port bow line on dock",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "foredeck-emergency",
+                         "name":  "Foredeck EMERGENCY Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "foreo-eme-1",
+                                           "name":  "Secure nearby passengers",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "foreo-eme-2",
+                                           "name":  "Standby for instructions",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     }
+                 ]
+}

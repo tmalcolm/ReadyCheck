@@ -1,13 +1,22 @@
-const CACHE_NAME = 'checklist-pwa-v2';
+const CACHE_NAME = 'checklist-pwa-v4';
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
   './css/styles.css',
   './js/cruising-boat-data.js',
+  './js/pegasus-boat-data.js',
   './js/storage.js',
   './js/bluetooth-share.js',
   './js/app.js',
+  './json/index.json',
+  './json/cruising_boat.json',
+  './json/pegasus_aftdeck.json',
+  './json/pegasus_foredeck.json',
+  './json/pegasus_helm.json',
+  './json/pegasus_master_list_all_stations.json',
+  './json/pegasus_port_winch.json',
+  './json/pegasus_starboard_winch.json',
   './icons/icon.svg',
   './icons/icon-192.png',
   './icons/icon-512.png'

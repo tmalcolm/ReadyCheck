@@ -16,19 +16,169 @@ const Storage = {
   },
 
   /**
-   * Initialize local storage, seeding with default checklist if empty
+   * Known list of JSON files in the json/ folder (used as fallback if index.json fetch fails)
+   */
+  jsonFiles: [
+    'cruising_boat.json',
+    'pegasus_aftdeck.json',
+    'pegasus_foredeck.json',
+    'pegasus_helm.json',
+    'pegasus_master_list_all_stations.json',
+    'pegasus_port_winch.json',
+    'pegasus_starboard_winch.json'
+  ],
+
+  /**
+   * Initialize local storage, seeding with preloaded default checklists if missing
    */
   init() {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) {
-        // Seed default Cruising Boat Checklist
-        const initialList = [CRUISING_BOAT_CHECKLIST];
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(initialList));
+      let lists = raw ? JSON.parse(raw) : [];
+
+      const defaults = (typeof PRELOADED_CHECKLISTS !== 'undefined' && Array.isArray(PRELOADED_CHECKLISTS))
+        ? PRELOADED_CHECKLISTS
+        : (typeof CRUISING_BOAT_CHECKLIST !== 'undefined' ? [CRUISING_BOAT_CHECKLIST] : []);
+
+      let updated = false;
+      defaults.forEach(defaultList => {
+        const exists = lists.some(l => l.id === defaultList.id || l.title.toLowerCase() === defaultList.title.toLowerCase());
+        if (!exists) {
+          lists.push(defaultList);
+          updated = true;
+        }
+      });
+
+      if (!raw || updated) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(lists));
       }
     } catch (e) {
       console.error('Failed to initialize local storage:', e);
     }
+  },
+
+  /**
+   * Load all checklists from the json folder when app starts
+   */
+  async loadJsonFolderChecklists() {
+    try {
+      let fileList = [...this.jsonFiles];
+      try {
+        const indexRes = await fetch('json/index.json');
+        if (indexRes.ok) {
+          const files = await indexRes.json();
+          if (Array.isArray(files) && files.length > 0) {
+            files.forEach(f => {
+              if (!fileList.includes(f)) fileList.push(f);
+            });
+          }
+        }
+      } catch (err) {
+        console.warn('Could not fetch json/index.json, using default file list fallback:', err);
+      }
+
+      const fetchedLists = [];
+      for (const filename of fileList) {
+        try {
+          const path = filename.startsWith('json/') ? filename : `json/${filename}`;
+          const res = await fetch(path);
+          if (res.ok) {
+            const data = await res.json();
+            if (data && (data.title || data.Title) && (Array.isArray(data.sublists) || Array.isArray(data.Sublists))) {
+              // Normalize title and sublists structure if needed
+              data.title = data.title || data.Title;
+              data.sublists = data.sublists || data.Sublists || [];
+              fetchedLists.push(data);
+            }
+          }
+        } catch (e) {
+          console.warn(`Failed to fetch checklist JSON: ${filename}`, e);
+        }
+      }
+
+      // Fallback to JS variable defaults if fetch returns empty (e.g. file:// protocol without server)
+      if (fetchedLists.length === 0) {
+        if (typeof PRELOADED_CHECKLISTS !== 'undefined' && Array.isArray(PRELOADED_CHECKLISTS)) {
+          fetchedLists.push(...PRELOADED_CHECKLISTS);
+        } else if (typeof CRUISING_BOAT_CHECKLIST !== 'undefined') {
+          fetchedLists.push(CRUISING_BOAT_CHECKLIST);
+        }
+      }
+
+      // Seed local storage with fetched checklists if missing
+      const raw = localStorage.getItem(STORAGE_KEY);
+      let lists = raw ? JSON.parse(raw) : [];
+      let updated = false;
+
+      fetchedLists.forEach(checklist => {
+        const exists = lists.some(l => l.id === checklist.id || l.title.toLowerCase() === checklist.title.toLowerCase());
+        if (!exists) {
+          lists.push(checklist);
+          updated = true;
+        }
+      });
+
+      if (!raw || updated) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(lists));
+      }
+
+      return lists;
+    } catch (e) {
+      console.error('Error loading checklists from json folder:', e);
+      this.init(); // Fallback to basic init
+      return this.getAllChecklists();
+    }
+  },
+
+  /**
+   * Re-seed or restore all preloaded default checklists from the json folder
+   */
+  async resetDefaults() {
+    let fetchedLists = [];
+    try {
+      let fileList = this.jsonFiles;
+      try {
+        const indexRes = await fetch('json/index.json');
+        if (indexRes.ok) {
+          const files = await indexRes.json();
+          if (Array.isArray(files) && files.length > 0) fileList = files;
+        }
+      } catch (err) {
+        console.warn('Could not fetch json/index.json for resetDefaults:', err);
+      }
+
+      for (const filename of fileList) {
+        try {
+          const path = filename.startsWith('json/') ? filename : `json/${filename}`;
+          const res = await fetch(path);
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.title && Array.isArray(data.sublists)) {
+              fetchedLists.push(data);
+            }
+          }
+        } catch (e) {}
+      }
+    } catch (e) {}
+
+    if (fetchedLists.length === 0) {
+      fetchedLists = (typeof PRELOADED_CHECKLISTS !== 'undefined' && Array.isArray(PRELOADED_CHECKLISTS))
+        ? PRELOADED_CHECKLISTS
+        : (typeof CRUISING_BOAT_CHECKLIST !== 'undefined' ? [CRUISING_BOAT_CHECKLIST] : []);
+    }
+
+    let lists = this.getAllChecklists();
+    fetchedLists.forEach(defaultList => {
+      const index = lists.findIndex(l => l.id === defaultList.id || l.title.toLowerCase() === defaultList.title.toLowerCase());
+      if (index >= 0) {
+        lists[index] = JSON.parse(JSON.stringify(defaultList));
+      } else {
+        lists.push(JSON.parse(JSON.stringify(defaultList)));
+      }
+    });
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(lists));
+    return lists;
   },
 
   /**
@@ -169,26 +319,38 @@ const Storage = {
         throw new Error('Invalid JSON format');
       }
 
-      if (!data.title || typeof data.title !== 'string') {
+      const title = data.title || data.Title;
+      if (!title || typeof title !== 'string') {
         throw new Error('Checklist requires a valid Title string');
       }
+
+      const sublists = data.sublists || data.Sublists || [];
 
       // Ensure proper structure
       const newChecklist = {
         id: this.generateId('checklist'),
-        title: data.title.trim(),
-        createdAt: data.createdAt || new Date().toISOString(),
+        title: title.trim(),
+        createdAt: data.createdAt || data.CreatedAt || new Date().toISOString(),
         updatedAt: new Date().toISOString(),
-        sublists: Array.isArray(data.sublists) ? data.sublists.map(sub => ({
-          id: sub.id || this.generateId('sub'),
-          name: typeof sub.name === 'string' ? sub.name : '',
-          items: Array.isArray(sub.items) ? sub.items.map(item => ({
-            id: item.id || this.generateId('item'),
-            name: String(item.name || 'Untitled Item'),
-            description: typeof item.description === 'string' ? item.description : '',
-            checked: !!item.checked
-          })) : []
-        })) : []
+        sublists: Array.isArray(sublists) ? sublists.map(sub => {
+          const subName = sub.name || sub.Name || sub.title || sub.Title || '';
+          const items = sub.items || sub.Items || [];
+          return {
+            id: sub.id || sub.Id || this.generateId('sub'),
+            name: typeof subName === 'string' ? subName : '',
+            items: Array.isArray(items) ? items.map(item => {
+              const itemName = item.name || item.Name || item.nAme || item.namE || 'Untitled Item';
+              const itemDesc = item.description || item.Description || '';
+              const itemId = item.id || item.Id || this.generateId('item');
+              return {
+                id: itemId,
+                name: String(itemName),
+                description: typeof itemDesc === 'string' ? itemDesc : '',
+                checked: !!item.checked
+              };
+            }) : []
+          };
+        }) : []
       };
 
       return this.saveChecklist(newChecklist);

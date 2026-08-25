@@ -1,0 +1,218 @@
+{
+    "id":  "pegasus-port-winch",
+    "title":  "Pegasus Port Winch Checklists",
+    "createdAt":  "2026-08-25T17:12:00Z",
+    "updatedAt":  "2026-08-25T17:12:00Z",
+    "sublists":  [
+                     {
+                         "id":  "port-winch-checklist",
+                         "name":  "Port Winch Pre-Departure Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "portw-1",
+                                           "name":  "Port springline on dock, ready for aft crew",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-2",
+                                           "name":  "Port boat hook secure",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-3",
+                                           "name":  "Emergency gear available in lazarette",
+                                           "description":  "Check flares, fire extinguisher, manual pump",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-4",
+                                           "name":  "Port winch handle in pocket",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-5",
+                                           "name":  "Jib sheet free/ready",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-6",
+                                           "name":  "Main sheet ready",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-7",
+                                           "name":  "Jib furling lines secure and ready",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-8",
+                                           "name":  "Stow companionway doors in master cabin",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-9",
+                                           "name":  "Bring boat close to dock",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-10",
+                                           "name":  "Aft side portholes closed",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-11",
+                                           "name":  "Pump head empty, check toilet paper",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-12",
+                                           "name":  "Open head sink thru hole",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-13",
+                                           "name":  "Head valve on wall closed",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-14",
+                                           "name":  "Unlock aft deck hatch",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-15",
+                                           "name":  "Check high water alarm",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-16",
+                                           "name":  "Check head holding tank level",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-17",
+                                           "name":  "Note water level in bilges",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-18",
+                                           "name":  "LPG switch off in galley",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "port-winch-departure",
+                         "name":  "Port Winch Departure Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "porto-dep-1",
+                                           "name":  "Deliver port stern line to aft deck crew",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "porto-dep-2",
+                                           "name":  "Deliver port bow line to foredeck crew",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "porto-dep-3",
+                                           "name":  "Stow boarding steps",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "porto-dep-4",
+                                           "name":  "On command, close gate \u0026 stow fenders",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "port-winch-underway",
+                         "name":  "Port Winch Underway Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "porto-und-1",
+                                           "name":  "Handle port jib sheet",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "porto-und-2",
+                                           "name":  "handle main sheet",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "porto-und-3",
+                                           "name":  "Handle jib furling line",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "port-winch-docking",
+                         "name":  "Port WinchDocking Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "porto-doc-1",
+                                           "name":  "Handle port stern line on dock",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "porto-doc-2",
+                                           "name":  "return boarding steps to gate",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "port-winch-emergency",
+                         "name":  "Port Winch EMERGENCY  Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "porto-eme-1",
+                                           "name":  "Secure nearby passengers",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "porto-eme-2",
+                                           "name":  "Standby at position for instructions",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "porto-eme-3",
+                                           "name":  "Bring lifesling lifting gear to gate as appropriate",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     }
+                 ]
+}

@@ -1,0 +1,884 @@
+{
+    "id":  "pegasus-master-all-stations",
+    "title":  "Boat Pre-Departure Checklists and Operational Overviews",
+    "createdAt":  "2026-08-25T17:12:00Z",
+    "updatedAt":  "2026-08-25T17:12:00Z",
+    "sublists":  [
+                     {
+                         "id":  "aft-deck-checklist",
+                         "name":  "Aft Deck Pre-Departure Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "aft-1",
+                                           "name":  "ORANGE THROWABLE RINGS (2) HUNG ON LIFELINES",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-2",
+                                           "name":  "STROBE HUNG ON LIFE RINGS",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-3",
+                                           "name":  "MOB POLE(S) READY TO DEPLOY",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-4",
+                                           "name":  "STOW COMPANIONWAY HATCH DOORS UNDER STOVE",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-5",
+                                           "name":  "EMERGENCY TILLER ACCESSIBLE IN AFT LOCKER",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-6",
+                                           "name":  "LPG TANK VALVES OFF",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-7",
+                                           "name":  "THROW BAG CLIPPED TO AFT RAIL",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-8",
+                                           "name":  "BLUE MIZZEN MAST WINCH HANDLE IN POCKET",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-9",
+                                           "name":  "MIZZEN SAIL COVER REMOVED",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-10",
+                                           "name":  "MIZZEN HALYARD ATTACHED AND TRAPPED",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-11",
+                                           "name":  "INSPECT LIFESLING",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-12",
+                                           "name":  "ASSIST OTHER CREW AS NEEDED",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "foredeck-checklist",
+                         "name":  "Foredeck Pre-departure Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "fore-1",
+                                           "name":  "Starboard bowline secure on lifeline",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "fore-2",
+                                           "name":  "Turn off 30A circuit breaker- power cord on dock",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "fore-3",
+                                           "name":  "Throw bag clipped to Sampson post",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "fore-4",
+                                           "name":  "Anchors secure and ready",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "fore-5",
+                                           "name":  "Mainmast winch handle in pocket",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "fore-6",
+                                           "name":  "Mainsail cover removed",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "fore-7",
+                                           "name":  "Main halyard trapped and ready to hoist",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "fore-8",
+                                           "name":  "Lazy jacks tightened",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "fore-9",
+                                           "name":  "Assist with starboard springline",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "fore-10",
+                                           "name":  "Close forward portholes",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "starboard-winch-checklist",
+                         "name":  "Starboard Winch Pre-Departure Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "stbdw-1",
+                                           "name":  "STARBOARD BOATHOOK SECURE",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "stbdw-2",
+                                           "name":  "SECURE STARBOARD SPRING LINE",
+                                           "description":  "COORDINATE WITH #4",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "stbdw-3",
+                                           "name":  "EPIRB IN MASTER\u0027S CABIN",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "stbdw-4",
+                                           "name":  "SECURE DOORS AND LOOSE GEAR",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "stbdw-5",
+                                           "name":  "CHECK FORWARD FIRE EXTINGUISHERS",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "stbdw-6",
+                                           "name":  "WALKING FENDER ON DECK",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "stbdw-7",
+                                           "name":  "STARBOARD WINCH HANDLE IN POCKET",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "stbdw-8",
+                                           "name":  "POWER CORD ON DOCK",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "stbdw-9",
+                                           "name":  "JIB SHEETS READY",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "stbdw-10",
+                                           "name":  "MIZZEN SHEET SECURE AND READY",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "port-winch-checklist",
+                         "name":  "(#3) Port Winch Pre-Departure Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "portw-1",
+                                           "name":  "PORT SPRINGLINE ON DOCK, READY FOR AFT CREW",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-2",
+                                           "name":  "PORT BOAT HOOK SECURE",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-3",
+                                           "name":  "EMERGENCY GEAR AVAILABLE IN LAZARETTE",
+                                           "description":  "CHECK FLARES, FIRE EXTINGUISHER, MANUAL PUMP",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-4",
+                                           "name":  "PORT WINCH HANDLE IN POCKET",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-5",
+                                           "name":  "JIB SHEET FREE/READY",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-6",
+                                           "name":  "MAIN SHEET READY",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-7",
+                                           "name":  "JIB FURLING LINES SECURE AND READY",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-8",
+                                           "name":  "STOW COMPANIONWAY DOORS IN MASTER CABIN",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-9",
+                                           "name":  "BRING BOAT CLOSE TO DOCK",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-10",
+                                           "name":  "AFT SIDE PORTHOLES CLOSED",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-11",
+                                           "name":  "PUMP HEAD EMPTY, CHECK TOILET PAPER",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-12",
+                                           "name":  "OPEN HEAD SINK THRU HOLE",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-13",
+                                           "name":  "HEAD VALVE ON WALL CLOSED",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-14",
+                                           "name":  "UNLOCK AFT DECK HATCH",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-15",
+                                           "name":  "CHECK HIGH WATER ALARM",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-16",
+                                           "name":  "CHECK HEAD HOLDING TANK LEVEL",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-17",
+                                           "name":  "NOTE WATER LEVEL IN BILGES",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "portw-18",
+                                           "name":  "LPG SWITCH OFF IN GALLEY",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "helm-checklist",
+                         "name":  "Helm Pre-Departure Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "helm-1",
+                                           "name":  "ENGINE RAW WATER AND FUEL VALVE OPEN",
+                                           "description":  "Engine overview: Belt tension, Fuel Filter clean, Pan under engine checked, transmission plug, Water strainer.",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-2",
+                                           "name":  "OIL LEVEL CHECKED",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-3",
+                                           "name":  "OVERFLOW WATER LEVEL CHECKED",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-4",
+                                           "name":  "BATTERY CHARGE CHECKED",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-5",
+                                           "name":  "ENGINE DOORS CLOSED",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-6",
+                                           "name":  "ENGINE KEY IN COCKPIT",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-7",
+                                           "name":  "ENGINE STARTED AND MAKING WATER *",
+                                           "description":  "*ENSURE THAT CAPTAIN HAS DOUBLE CHECKED RAW WATER INTAKE VALVE",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-8",
+                                           "name":  "FORWARD AND REVERSE GEARS TESTED",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-9",
+                                           "name":  "INSTRUMENTS ON AND COVERS OFF",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-10",
+                                           "name":  "VHF RADIO IN PEDESTAL HOLDER AND TURNED ON",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-11",
+                                           "name":  "GPS MOUNTED ON PEDESTAL AND WORKING",
+                                           "description":  "-IF NEEDED",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-12",
+                                           "name":  "WHISTLE ON PEDESTAL",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-13",
+                                           "name":  "BINOCULARS ON DECK",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-14",
+                                           "name":  "REMOVE PEDESTAL COVER AND USE TO STORE WINCH COVERS",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-15",
+                                           "name":  "WHEEL UNLOCKED AND RUDDER CENTERED",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-16",
+                                           "name":  "AIR HORN IN HOLDER, EMERG. KNIFE IN HOLDER",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-17",
+                                           "name":  "BILGE PUMPS ON",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "aft-deck-departure",
+                         "name":  "(#6) AFT Deck Overview - Departure",
+                         "items":  [
+                                       {
+                                           "id":  "afto-dep-1",
+                                           "name":  "CAST OFF PORT STERN LINE ON COMMAND",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "afto-dep-2",
+                                           "name":  "CALL DISTANCE FROM STERN TO OTHER SIDE",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "afto-dep-3",
+                                           "name":  "COIL AND SECURE STERN LINE",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "aft-deck-underway",
+                         "name":  "(#6) AFT Deck Overview - Underway",
+                         "items":  [
+                                       {
+                                           "id":  "afto-und-1",
+                                           "name":  "RAISE/DROP MIZZEN SAIL",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "afto-und-2",
+                                           "name":  "MAINTAIN AFT WATCH",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "aft-deck-docking",
+                         "name":  "(#6) AFT Deck Overview - Docking",
+                         "items":  [
+                                       {
+                                           "id":  "afto-doc-1",
+                                           "name":  "PASS STERN LINE TO PORT WINCH CREW",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "afto-doc-2",
+                                           "name":  "STANDBY TO ASSIST AS NEEDED",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "aft-deck-emergency",
+                         "name":  "(#6) AFT Deck Overview - Emergency",
+                         "items":  [
+                                       {
+                                           "id":  "afto-eme-1",
+                                           "name":  "IF MOB, THROW ORANGE RING/LIGHT IMMEDIATELY",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "afto-eme-2",
+                                           "name":  "MAINTAIN EYES ON MOB UNTIL RELIEVED",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "afto-eme-3",
+                                           "name":  "SECURE NEARBY PASSENGERS",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "afto-eme-4",
+                                           "name":  "STANDBY AT POSITION FOR INSTRUCTIONS",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "afto-eme-5",
+                                           "name":  "BRING LEFESLING TO APPROPRIATE GATE",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "foredeck-departure",
+                         "name":  "Position 3 - Foredeck Overview - Departure",
+                         "items":  [
+                                       {
+                                           "id":  "foreo-dep-1",
+                                           "name":  "Cast off port bow line on command",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "foreo-dep-2",
+                                           "name":  "Call out when bow is clear of piling",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "foreo-dep-3",
+                                           "name":  "Coil and secure bow line",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "foredeck-underway",
+                         "name":  "Position 3 - Foredeck Overview - Underway",
+                         "items":  [
+                                       {
+                                           "id":  "foreo-und-1",
+                                           "name":  "Handle main halyard and other lines",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "foreo-und-2",
+                                           "name":  "Coordinate raise/reef/drop of mainsail",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "foreo-und-3",
+                                           "name":  "Maintain forward watch",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "foredeck-docking",
+                         "name":  "Position 3 - Foredeck Overview - Docking",
+                         "items":  [
+                                       {
+                                           "id":  "foreo-doc-1",
+                                           "name":  "Handle port bow line on dock",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "foredeck-emergency",
+                         "name":  "Position 3 - Foredeck Overview - Emergency",
+                         "items":  [
+                                       {
+                                           "id":  "foreo-eme-1",
+                                           "name":  "Secure nearby passengers",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "foreo-eme-2",
+                                           "name":  "Standby for instructions",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "starboard-winch-departure",
+                         "name":  "(#5) Starboard Winch Overview - Departure",
+                         "items":  [
+                                       {
+                                           "id":  "stbdo-dep-1",
+                                           "name":  "HANDLE WALKING FENDER",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "starboard-winch-underway",
+                         "name":  "(#5) Starboard Winch Overview - Underway",
+                         "items":  [
+                                       {
+                                           "id":  "stbdo-und-1",
+                                           "name":  "HANDLE STARBOARD JIB SHEET",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "stbdo-und-2",
+                                           "name":  "HANDLE MIZZEN SHEET",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "stbdo-und-3",
+                                           "name":  "HAUL WORKING JIB SHEET WHILE UNFURLING",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "stbdo-und-4",
+                                           "name":  "EASE LOADED JIB SHEET WHILE FURLING",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "starboard-winch-docking",
+                         "name":  "(#5) Starboard Winch Overview - Docking",
+                         "items":  [
+                                       {
+                                           "id":  "stbdo-doc-1",
+                                           "name":  "HANDLE WALKING FENDER",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "starboard-winch-emergency",
+                         "name":  "(#5) Starboard Winch Overview - Emergency",
+                         "items":  [
+                                       {
+                                           "id":  "stbdo-eme-1",
+                                           "name":  "SECURE NEARBY PASSENGERS",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "stbdo-eme-2",
+                                           "name":  "STANDBY AT POSITION FOR INSTRUCTIONS",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "stbdo-eme-3",
+                                           "name":  "BRING LIFESLING LIFTING GEAR TO GATE AS APPROPRIATE",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "port-winch-departure",
+                         "name":  "(#3) Port Winch Overview - Departure",
+                         "items":  [
+                                       {
+                                           "id":  "porto-dep-1",
+                                           "name":  "1. DELIVER PORT STERN LINE TO AFT DECK CREW",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "porto-dep-2",
+                                           "name":  "2. DELIVER PORT BOW LINE TO FOREDECK CREW",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "porto-dep-3",
+                                           "name":  "3. STOW BOARDING STEPS",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "porto-dep-4",
+                                           "name":  "4. ON COMMAND, CLOSE GATE \u0026 STOW FENDERS",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "port-winch-underway",
+                         "name":  "(#3) Port Winch Overview - Underway",
+                         "items":  [
+                                       {
+                                           "id":  "porto-und-1",
+                                           "name":  "HANDLE PORT JIB SHEET",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "porto-und-2",
+                                           "name":  "HANDLE MAIN SHEET",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "porto-und-3",
+                                           "name":  "HANDLE JIB FURLING LINE",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "port-winch-docking",
+                         "name":  "(#3) Port Winch Overview - Docking",
+                         "items":  [
+                                       {
+                                           "id":  "porto-doc-1",
+                                           "name":  "HANDLE PORT STERN LINE ON DOCK",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "porto-doc-2",
+                                           "name":  "RETURN BOARDING STEPS TO GATE",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "port-winch-emergency",
+                         "name":  "(#3) Port Winch Overview - Emergency",
+                         "items":  [
+                                       {
+                                           "id":  "porto-eme-1",
+                                           "name":  "SECURE NEARBY PASSENGERS",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "porto-eme-2",
+                                           "name":  "STANDBY AT POSITION FOR INSTRUCTIONS",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "porto-eme-3",
+                                           "name":  "BRING LIFESLING LIFTING GEAR TO GATE AS APPROPRIATE",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "helm-departure",
+                         "name":  "(#2) Helm Overview - Departure",
+                         "items":  [
+                                       {
+                                           "id":  "helmo-dep-1",
+                                           "name":  "PREPARE CREW FOR DEPARTURE",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helmo-dep-2",
+                                           "name":  "WHEN READY, DIRECT CREW TO CAST OFF",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helmo-dep-3",
+                                           "name":  "MANEUVER BOAT OUT OF SLIP",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "helm-underway",
+                         "name":  "(#2) Helm Overview - Underway",
+                         "items":  [
+                                       {
+                                           "id":  "helmo-und-1",
+                                           "name":  "CONSULT WITH CAPTAIN ON SAIL SELECTION",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helmo-und-2",
+                                           "name":  "DIRECT CREW ON SAIL HANDLING",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helmo-und-3",
+                                           "name":  "CONSULT WITH CAPTAIN ON COURSE CHANGES",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helmo-und-4",
+                                           "name":  "MAINTAIN RESPONSIBILITY FOR HELM",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "helm-docking",
+                         "name":  "(#2) Helm Overview - Docking",
+                         "items":  [
+                                       {
+                                           "id":  "helmo-doc-1",
+                                           "name":  "PREPARE CREW FOR DOCKING",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helmo-doc-2",
+                                           "name":  "MANEUVER BOAT INTO SLIP, SLOW AS SHE GOES",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "helm-emergency",
+                         "name":  "(#2) Helm Overview - Emergency",
+                         "items":  [
+                                       {
+                                           "id":  "helmo-eme-1",
+                                           "name":  "CONSULT WITH CAPTAIN RE. MANEUVERS",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helmo-eme-2",
+                                           "name":  "ASSIST WITH CONTROL OF CREW \u0026 PASSENGERS",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helmo-eme-3",
+                                           "name":  "IF MOB, STOP VESSEL, MANEUVER TO PERSON OVERBOARD",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     }
+                 ]
+}

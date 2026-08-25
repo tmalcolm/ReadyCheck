@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const checklistListContainer = document.getElementById('checklist-list');
   const btnNewChecklist = document.getElementById('btn-new-checklist');
   const btnImportChecklist = document.getElementById('btn-import-checklist');
+  const btnRestorePresets = document.getElementById('btn-restore-presets');
   const fileImportInput = document.getElementById('file-import-input');
 
   // View Screen Elements
@@ -66,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      Initialization & Splash Screen
      ========================================================================== */
-  function initApp() {
+  async function initApp() {
     // Register Service Worker for PWA offline functionality
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./sw.js').then((reg) => {
@@ -77,6 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     updateNetworkStatus();
+
+    // Load all checklists from the json folder when app starts
+    await Storage.loadJsonFolderChecklists();
 
     // Hide Splash Screen after brief load delay
     setTimeout(() => {
@@ -116,6 +120,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Main Screen Buttons
     btnNewChecklist.addEventListener('click', createNewChecklist);
     btnImportChecklist.addEventListener('click', () => fileImportInput.click());
+    if (btnRestorePresets) {
+      btnRestorePresets.addEventListener('click', () => {
+        showModalConfirm(
+          'Restore Default Presets',
+          'Restore all default preloaded checklists from the JSON folder? Any custom changes to preset checklists will be reset to defaults.',
+          async () => {
+            await Storage.resetDefaults();
+            showToast('Preloaded checklists restored!', 'success');
+            renderMainScreen();
+          }
+        );
+      });
+    }
     fileImportInput.addEventListener('change', handleFileImport);
 
     // View Screen Buttons

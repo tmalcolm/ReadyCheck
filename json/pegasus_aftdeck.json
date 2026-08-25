@@ -1,0 +1,182 @@
+{
+    "id":  "pegasus-aft-deck",
+    "title":  "Pegasus Aft Deck Checklists",
+    "createdAt":  "2026-08-25T17:12:00Z",
+    "updatedAt":  "2026-08-25T17:12:00Z",
+    "sublists":  [
+                     {
+                         "id":  "aft-deck-checklist",
+                         "name":  "Aft Deck Pre-Departure Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "aft-1",
+                                           "name":  "Orange throwable rings (2) hung on lifelines",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-2",
+                                           "name":  "Strobe hung on life rings",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-3",
+                                           "name":  "MOB pole(s) ready to deploy",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-4",
+                                           "name":  "Stow companionway hatch doors under stove",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-5",
+                                           "name":  "Emergency tiller accessible in aft locker",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-6",
+                                           "name":  "LPG tank valves off",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-7",
+                                           "name":  "Throw bag clipped to aft rail",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-8",
+                                           "name":  "Blue mizzen mast winch handle in pocket",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-9",
+                                           "name":  "Mizzen sail cover removed",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-10",
+                                           "name":  "Mizzen halyard attached and trapped",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-11",
+                                           "name":  "Inspect lifesling",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "aft-12",
+                                           "name":  "Assist other crew as needed",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "aft-deck-departure",
+                         "name":  "Aft Deck Departure Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "afto-dep-1",
+                                           "name":  "Cast off port stern line on command",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "afto-dep-2",
+                                           "name":  "Call distance from stern to other side",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "afto-dep-3",
+                                           "name":  "Coil and secure stern line",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "aft-deck-underway",
+                         "name":  "Aft Deck Underway Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "afto-und-1",
+                                           "name":  "Raise/drop mizzen sail",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "afto-und-2",
+                                           "name":  "Maintain aft watch",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "aft-deck-docking",
+                         "name":  "Aft Deck Docking Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "afto-doc-1",
+                                           "name":  "Pass stern line to port winch crew",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "afto-doc-2",
+                                           "name":  "Standby to assist as needed",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "aft-deck-emergency",
+                         "name":  "Aft Deck EMERGENCY Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "afto-eme-1",
+                                           "name":  "If MOB, throw orange ring/light immediately",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "afto-eme-2",
+                                           "name":  "Maintain eyes on mob until relieved",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "afto-eme-3",
+                                           "name":  "Secure nearby passengers",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "afto-eme-4",
+                                           "name":  "Standby at position for instructions",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "afto-eme-5",
+                                           "name":  "Bring lefesling to appropriate gate",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     }
+                 ]
+}

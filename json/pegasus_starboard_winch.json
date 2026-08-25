@@ -1,0 +1,152 @@
+{
+    "id": "pegasus-starboard-winch",
+    "title": "Pegasus Starboard Winch Checklists",
+    "createdAt": "2026-08-25T17:12:00Z",
+    "updatedAt": "2026-08-25T17:12:00Z",
+    "sublists": [
+        {
+            "id": "starboard-winch-checklist",
+            "name": "Starboard Winch Pre-Departure Checklist",
+            "items": [
+                {
+                    "id": "stbdw-1",
+                    "name": "Starboard boathook secure",
+                    "description": "",
+                    "checked": false
+                },
+                {
+                    "id": "stbdw-2",
+                    "name": "Secure starboard spring line",
+                    "description": "Coordinate with fore deck",
+                    "checked": false
+                },
+                {
+                    "id": "stbdw-3",
+                    "name": "EPIRB In master\u0027s cabin",
+                    "description": "",
+                    "checked": false
+                },
+                {
+                    "id": "stbdw-4",
+                    "name": "Secure doors and loose gear",
+                    "description": "",
+                    "checked": false
+                },
+                {
+                    "id": "stbdw-5",
+                    "name": "Check forward fire extinguishers",
+                    "description": "",
+                    "checked": false
+                },
+                {
+                    "id": "stbdw-6",
+                    "name": "Walking fender on deck",
+                    "description": "",
+                    "checked": false
+                },
+                {
+                    "id": "stbdw-7",
+                    "name": "Starboard winch handle in pocket",
+                    "description": "",
+                    "checked": false
+                },
+                {
+                    "id": "stbdw-8",
+                    "name": "Power cord on dock",
+                    "description": "",
+                    "checked": false
+                },
+                {
+                    "id": "stbdw-9",
+                    "name": "Jib sheets ready",
+                    "description": "",
+                    "checked": false
+                },
+                {
+                    "id": "stbdw-10",
+                    "name": "Mizzen sheet secure and ready",
+                    "description": "",
+                    "checked": false
+                }
+            ]
+        },
+        {
+            "id": "starboard-winch-departure",
+            "name": "Starboard Winch Departure Checklist",
+            "items": [
+                {
+                    "id": "stbdo-dep-1",
+                    "name": "Handle walking fender",
+                    "description": "",
+                    "checked": false
+                }
+            ]
+        },
+        {
+            "id": "starboard-winch-underway",
+            "name": "Starboard Winch Underway Checklist",
+            "items": [
+                {
+                    "id": "stbdo-und-1",
+                    "name": "Handle starboard jib sheet",
+                    "description": "",
+                    "checked": false
+                },
+                {
+                    "id": "stbdo-und-2",
+                    "name": "Handle mizzen sheet",
+                    "description": "",
+                    "checked": false
+                },
+                {
+                    "id": "stbdo-und-3",
+                    "name": "Haul working jib sheet while unfurling",
+                    "description": "",
+                    "checked": false
+                },
+                {
+                    "id": "stbdo-und-4",
+                    "name": "Ease loaded jib sheet while furling",
+                    "description": "",
+                    "checked": false
+                }
+            ]
+        },
+        {
+            "id": "starboard-winch-docking",
+            "name": "Starboard Winch Docking Checklist",
+            "items": [
+                {
+                    "id": "stbdo-doc-1",
+                    "name": "Handle walking fender",
+                    "description": "",
+                    "checked": false
+                }
+            ]
+        },
+        {
+            "id": "starboard-winch-emergency",
+            "name": "Starboard Winch EMERGENCY Checklist",
+            "items": [
+                {
+                    "id": "stbdo-eme-1",
+                    "name": "Secure nearby passengers",
+                    "description": "",
+                    "checked": false
+                },
+                {
+                    "id": "stbdo-eme-2",
+                    "name": "Standby at position for instructions",
+                    "description": "",
+                    "checked": false
+                },
+                {
+                    "id": "stbdo-eme-3",
+                    "name": "Bring lifesling lifting gear to gate as appropriate",
+                    "description": "",
+                    "checked": false
+                }
+            ]
+        }
+    ]
+}

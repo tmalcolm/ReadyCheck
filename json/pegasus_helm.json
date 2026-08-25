@@ -1,0 +1,218 @@
+{
+    "id":  "pegasus-helm",
+    "title":  "Pegasus Helm Checklists",
+    "createdAt":  "2026-08-25T17:12:00Z",
+    "updatedAt":  "2026-08-25T17:12:00Z",
+    "sublists":  [
+                     {
+                         "id":  "helm-checklist",
+                         "name":  "Helm Pre-Departure Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "helm-1",
+                                           "name":  "Engine raw water and fuel valve open",
+                                           "description":  "Engine overview: Belt tension, Fuel Filter clean, Pan under engine checked, transmission plug, Water strainer.",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-2",
+                                           "name":  "Oil level checked",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-3",
+                                           "name":  "Overflow water level checked",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-4",
+                                           "name":  "Battery charge checked",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-5",
+                                           "name":  "Engine doors closed",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-6",
+                                           "name":  "Engine key in cockpit",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-7",
+                                           "name":  "Engine started and making water",
+                                           "description":  "Ensure that captain has double checked raw water intake valve",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-8",
+                                           "name":  "Forward and reverse gears tested",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-9",
+                                           "name":  "instruments on and covers off",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-10",
+                                           "name":  "Vhf radio in pedestal holder and turned on",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-11",
+                                           "name":  "Gps mounted on pedestal and working",
+                                           "description":  "-If needed",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-12",
+                                           "name":  "Whistle on pedestal",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-13",
+                                           "name":  "Binoculars on deck",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-14",
+                                           "name":  "Remove pedestal cover and use to store winch covers",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-15",
+                                           "name":  "Wheel unlocked and rudder centered",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-16",
+                                           "name":  "Air horn in holder",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-17",
+                                           "name":  "Emergency Knife in holder",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helm-18",
+                                           "name":  "Bilge pumps on",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "helm-departure",
+                         "name":  "Helm Departure Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "helmo-dep-1",
+                                           "name":  "Prepare crew for departure",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helmo-dep-2",
+                                           "name":  "When ready, direct crew to cast off",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helmo-dep-3",
+                                           "name":  "Maneuver boat out of slip",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "helm-underway",
+                         "name":  "Helm Underway Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "helmo-und-1",
+                                           "name":  "consult with captain on sail selection",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helmo-und-2",
+                                           "name":  "Direct crew on sail handling",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helmo-und-3",
+                                           "name":  "Consult with captain on course changes",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helmo-und-4",
+                                           "name":  "Maintain responsibility for helm",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "helm-docking",
+                         "name":  "Helm Docking Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "helmo-doc-1",
+                                           "name":  "Prepare crew for docking",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helmo-doc-2",
+                                           "name":  "Maneuver boat into slip, slow as she goes",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     },
+                     {
+                         "id":  "helm-emergency",
+                         "name":  "Helm EMERGENCY Checklist",
+                         "items":  [
+                                       {
+                                           "id":  "helmo-eme-1",
+                                           "name":  "consult with captain re. Maneuvers",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helmo-eme-2",
+                                           "name":  "Assist with control of crew \u0026 passengers",
+                                           "description":  "",
+                                           "checked":  false
+                                       },
+                                       {
+                                           "id":  "helmo-eme-3",
+                                           "name":  "If MOB, stop vessel, maneuver to person overboard",
+                                           "description":  "",
+                                           "checked":  false
+                                       }
+                                   ]
+                     }
+                 ]
+}
