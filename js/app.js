@@ -123,8 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnRestorePresets) {
       btnRestorePresets.addEventListener('click', () => {
         showModalConfirm(
-          'Restore Default Presets',
-          'Restore all default preloaded checklists from the JSON folder? Any custom changes to preset checklists will be reset to defaults.',
+          'Restore Defaults',
+          'Restore all default preloaded checklists from the JSON folder? Any custom changes to default checklists will be reset.',
           async () => {
             await Storage.resetDefaults();
             showToast('Preloaded checklists restored!', 'success');

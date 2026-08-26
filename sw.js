@@ -1,7 +1,8 @@
-const CACHE_NAME = 'checklist-pwa-v4';
+const CACHE_NAME = 'checklist-pwa-v5';
 const ASSETS = [
   './',
   './index.html',
+  './help.html',
   './manifest.json',
   './css/styles.css',
   './js/cruising-boat-data.js',

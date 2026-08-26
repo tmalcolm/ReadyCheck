@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="ReadyCheck User Guide and Help Documentation.">
+  <title>ReadyCheck - Help & Guide</title>
+
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .help-container {
+      padding: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      width: 100%;
+    }
+
+    .help-card {
+      background: var(--gradient-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .help-card h2 {
+      font-size: 1.2rem;
+      color: var(--accent-cyan);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .help-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .help-card ul {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      padding-left: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .help-card li {
+      margin-bottom: 0.35rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-brand">
+        <a href="index.html" class="btn btn-secondary"
+          style="padding: 0.4rem 0.75rem; min-height: auto; font-size: 0.85rem;">← Back</a>
+        <span class="header-title">ReadyCheck Help</span>
+      </div>
+      <div class="header-actions">
+        <button id="btn-theme-toggle" class="btn-icon" title="Toggle Light/Dark Theme">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Help Content -->
+    <main class="help-container">
+      <section class="help-card">
+        <h2>🚀 Getting Started</h2>
+        <p>Welcome to ReadyCheck, an offline-first Progressive Web App designed for managing checklists seamlessly on
+          land or at sea.</p>
+        <ul>
+          <li><strong>View Checklists:</strong> Tap or click any checklist card on the main screen to open and
+            interactively check off items.</li>
+          <li><strong>Search:</strong> Use the top search bar to quickly filter your checklist library by title.</li>
+        </ul>
+      </section>
+
+      <section class="help-card">
+        <h2>📝 Creating & Editing Checklists</h2>
+        <p>Tailor your checklists to your exact requirements:</p>
+        <ul>
+          <li><strong>+ New Checklist:</strong> Tap to create a brand new checklist from scratch.</li>
+          <li><strong>Edit Mode:</strong> Add, edit, or remove sub-lists, update item titles and descriptions, and
+            reorder items.</li>
+          <li><strong>Copy Checklist:</strong> Duplicate existing checklists to make quick variations.</li>
+        </ul>
+      </section>
+
+      <section class="help-card">
+        <h2>📥 Import & Export</h2>
+        <p>Easily back up or transfer your checklist data:</p>
+        <ul>
+          <li><strong>Import Checklist:</strong> Tap 📥 Import to load a <code>.json</code> checklist from your
+            local storage or from a web url.</li>
+          <li><strong>Bluetooth & Web Share:</strong> Share checklists wirelessly with nearby devices or save them to
+            your local device storage.</li>
+        </ul>
+      </section>
+
+      <section class="help-card">
+        <h2>📚 Restoring Defaults</h2>
+        <p>Reset your checklist library back to factory preloaded templates:</p>
+        <ul>
+          <li>Tap the <strong>Defaults</strong> button on the main toolbar to restore preloaded vessel and equipment
+            checklists.</li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- Help Page Footer -->
+    <footer class="main-footer">
+      <div class="footer-text">
+        <p class="footer-line1">cali time studio</p>
+        <p class="footer-line2">by Tim Malcolm &copy; 2026</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const btnThemeToggle = document.getElementById('btn-theme-toggle');
+    if (btnThemeToggle) {
+      btnThemeToggle.addEventListener('click', () => {
+        const currentTheme = document.body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        document.body.setAttribute('data-theme', newTheme);
+      });
+    }
+  </script>
+</body>
+
+</html>
