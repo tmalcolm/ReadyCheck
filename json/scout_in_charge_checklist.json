@@ -1,0 +1,188 @@
+{
+  "id": "sic-checklist-default",
+  "title": "Scout-in-Charge (SIC) Checklist",
+  "createdAt": "2026-10-02T00:00:00.000Z",
+  "updatedAt": "2026-10-02T00:00:00.000Z",
+  "sublists": [
+    {
+      "id": "sub-1",
+      "name": "3 Months Before the Event",
+      "items": [
+        {
+          "id": "item-1-1",
+          "name": "Promote Scoutbook Signups",
+          "description": "Promote Scoutbook signups by published deadline at troop meetings and via email to troop.",
+          "checked": false
+        },
+        {
+          "id": "item-1-2",
+          "name": "Promote Event Creatively",
+          "description": "Be creative! Share photos from past events (connect a laptop to the TV during troop meetings), give precise information about where/when/what it is, and tell scouts why your event is going to be great!",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "id": "sub-2",
+      "name": "1 Month Before the Event",
+      "items": [
+        {
+          "id": "item-2-1",
+          "name": "Discuss Event Plan at PLC Meetings",
+          "description": "Make sure everyone is informed about: Where (locations), When (dates), What (logistics - equipment, foods), and How (transportation).",
+          "checked": false
+        },
+        {
+          "id": "item-2-2",
+          "name": "Promote Scoutbook Signups",
+          "description": "Promote Scoutbook signups by published deadline at troop meetings and via email to troop.",
+          "checked": false
+        },
+        {
+          "id": "item-2-3",
+          "name": "Develop Event Schedule",
+          "description": "Develop an event schedule and share it with the Adult-in-Charge (AIC).",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "id": "sub-3",
+      "name": "1 Week Before the Event",
+      "items": [
+        {
+          "id": "item-3-1",
+          "name": "Review Patrol Participation and Combine Patrols",
+          "description": "For outings that include tenting and/or cooking, review patrol participation and combine scouts from under-represented patrols with other patrols; if PLs/APLs are not in attendance, appoint PLs as needed for outing patrols.",
+          "checked": false
+        },
+        {
+          "id": "item-3-2",
+          "name": "Schedule Pack Check",
+          "description": "Schedule a pack check for backpacking and high adventure trips.",
+          "checked": false
+        },
+        {
+          "id": "item-3-3",
+          "name": "Check Patrol Readiness with PLs",
+          "description": "Check with PLs to ensure tenting and cooking plans are in place, patrol box is ready (clean, complete, location/carrier known), and Grubmasters are purchasing food as needed.",
+          "checked": false
+        },
+        {
+          "id": "item-3-4",
+          "name": "Create Car Travel Seating Arrangements",
+          "description": "Create seating arrangements for car travel to/from event in coordination with the AIC.",
+          "checked": false
+        },
+        {
+          "id": "item-3-5",
+          "name": "Share Event Schedule with PLs",
+          "description": "Share the event schedule with the PLs.",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "id": "sub-4",
+      "name": "Event Check-in",
+      "items": [
+        {
+          "id": "item-4-1",
+          "name": "Check Attendance",
+          "description": "Check that the scouts who RSVP'd yes are present (if not, try to contact them).",
+          "checked": false
+        },
+        {
+          "id": "item-4-2",
+          "name": "Collect Required Forms and Information",
+          "description": "Check with AIC on forms. Medical forms A, B1, B2 are required for all outings; Medical form C (signed by doctor) is required for 72+ hour outings; Aquatics participation requires scouts to be certified swimmers.",
+          "checked": false
+        },
+        {
+          "id": "item-4-3",
+          "name": "Verify Patrol Gear and Patrol Boxes",
+          "description": "Check that PLs have all their gear, including their patrol box.",
+          "checked": false
+        },
+        {
+          "id": "item-4-4",
+          "name": "Check Stove Fuel Supply",
+          "description": "Check that each PL has enough fuel, if stoves will be used on the outing.",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "id": "sub-5",
+      "name": "During the Event",
+      "items": [
+        {
+          "id": "item-5-1",
+          "name": "Monitor Headcounts and Buddy System",
+          "description": "Monitor scouts headcounts, help enforce the buddy system, and ensure scouts live up to troop motto (Nobody Walks Alone).",
+          "checked": false
+        },
+        {
+          "id": "item-5-2",
+          "name": "Direct Formations and Campsite Setup",
+          "description": "Direct pack lines, fall ins, campsite selection, loading and unloading.",
+          "checked": false
+        },
+        {
+          "id": "item-5-3",
+          "name": "Organize Activities and Perform Safety Checks",
+          "description": "Organize activities as called for by event plan and perform safety checks as needed.",
+          "checked": false
+        },
+        {
+          "id": "item-5-4",
+          "name": "Encourage Photos and Monitor Cell Phone Usage",
+          "description": "Encourage scouts to take pictures and monitor cell phone usage to ensure it conforms with troop cell phone policy.",
+          "checked": false
+        },
+        {
+          "id": "item-5-5",
+          "name": "Maintain Leave No Trace Standard",
+          "description": "Clean up & sweep campsites.",
+          "checked": false
+        },
+        {
+          "id": "item-5-6",
+          "name": "Lead Campfire and Closing",
+          "description": "MC campfire as appropriate and close the outing with Roses, Buds, and Thorns.",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "id": "sub-6",
+      "name": "After the Event",
+      "items": [
+        {
+          "id": "item-6-1",
+          "name": "Assign Equipment Cleaning",
+          "description": "Ensure PLs have assigned patrol QMs or participating scouts to take home all used equipment for cleaning to be ready by next troop meeting.",
+          "checked": false
+        },
+        {
+          "id": "item-6-2",
+          "name": "Collect and Share Event Photos",
+          "description": "Encourage scouts to upload photos to the troop shared drive, and check with Social Media Chair and Historian to share photo updates for social media/website.",
+          "checked": false
+        },
+        {
+          "id": "item-6-3",
+          "name": "Provide Feedback to PLC",
+          "description": "Present written feedback to PLC and lead discussion of any learning.",
+          "checked": false
+        },
+        {
+          "id": "item-6-4",
+          "name": "Review Highlights at Next Troop Meeting",
+          "description": "At next troop meeting: describe outing highlights and then have participants say what they liked most about the outing.",
+          "checked": false
+        }
+      ]
+    }
+  ]
+}

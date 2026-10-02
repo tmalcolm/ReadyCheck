@@ -1,0 +1,188 @@
+{
+  "id": "aic-checklist-default",
+  "title": "Adult-in-Charge (AIC) Checklist",
+  "createdAt": "2026-10-02T00:00:00.000Z",
+  "updatedAt": "2026-10-02T00:00:00.000Z",
+  "sublists": [
+    {
+      "id": "sub-1",
+      "name": "6 Months to 1 Year Before the Event",
+      "items": [
+        {
+          "id": "item-1-1",
+          "name": "Review Safety Guidelines and Training",
+          "description": "Read the Guide to Safe Scouting. Ensure current training in safety course for your outing.",
+          "checked": false
+        },
+        {
+          "id": "item-1-2",
+          "name": "Make Site Reservations",
+          "description": "Make site reservations (e.g., State Parks: 6 months in advance at 9am; may need 2nd adult to make reservations simultaneously if group site is not available).",
+          "checked": false
+        },
+        {
+          "id": "item-1-3",
+          "name": "Deliver Event Details to Scoutmaster",
+          "description": "Provide location, dates, departure/return time & location, cost (extraordinary expenses), uniform requirements (typically Class A travel, Class B camping), and event-specific info.",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "id": "sub-2",
+      "name": "3 Months Before the Event",
+      "items": [
+        {
+          "id": "item-2-1",
+          "name": "Mentor the Scout-in-Charge (SIC)",
+          "description": "As soon as PLC appoints SIC, mentor them as they plan (always cc: parent on electronic communication; biweekly check-ins, meeting prep reminders). Ask SM if unsure who SIC is.",
+          "checked": false
+        },
+        {
+          "id": "item-2-2",
+          "name": "Promote Event Signups",
+          "description": "Remind SIC to announce outing at troop meetings and encourage signups. Encourage SIC to get creative and put energy into it!",
+          "checked": false
+        },
+        {
+          "id": "item-2-3",
+          "name": "Verify Position Training",
+          "description": "Be Position Trained as Assistant Scoutmaster (ASM).",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "id": "sub-3",
+      "name": "1 Month Before the Event",
+      "items": [
+        {
+          "id": "item-3-1",
+          "name": "Weekly SIC Check-in & Equipment Requests",
+          "description": "Check in with SIC weekly. Assist SIC with deciding on needed equipment and submitting requests to the QM.",
+          "checked": false
+        },
+        {
+          "id": "item-3-2",
+          "name": "Adult Leadership & Training Verification",
+          "description": "Identify adult leadership to ensure two-deep leadership throughout (including one female ASM). Ensure adults have required training (YPT, Hazardous Weather, Safe Swim, Safety Afloat, CPR/First Aid, WFA, etc.).",
+          "checked": false
+        },
+        {
+          "id": "item-3-3",
+          "name": "Schedule Pack/Equipment Check",
+          "description": "Schedule equipment checks if necessary. Conduct pack checks with ASMs (can book Summit Room at Sports Basement Sunnyvale or REI Saratoga: Andrew Merg 408-871-8765 Amerg@REI.com).",
+          "checked": false
+        },
+        {
+          "id": "item-3-4",
+          "name": "Permits, Travel Route & Driver Signups",
+          "description": "Obtain fire permit if required. Start requesting driver signups, plan travel route, and prepare maps/driving instructions for outing day.",
+          "checked": false
+        },
+        {
+          "id": "item-3-5",
+          "name": "Medical Forms & Roster Preparation",
+          "description": "Remind everyone that printed hard copies of medical forms are required (Form C for 72+ hr outings). Utilize TEMPLATE for driver signups, pack checks, roster, dietary needs, and meal planning.",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "id": "sub-4",
+      "name": "1 Week Before the Event",
+      "items": [
+        {
+          "id": "item-4-1",
+          "name": "Check in with SIC & Driver Communications",
+          "description": "Check in with SIC. Create driver cell phone list and initiate group text.",
+          "checked": false
+        },
+        {
+          "id": "item-4-2",
+          "name": "First Aid Kit & Adult Food Planning",
+          "description": "Obtain an appropriate First Aid kit (toolbox-size kit in room 2 at church). Coordinate adult food/cooking plan with other adults ('Old Goats').",
+          "checked": false
+        },
+        {
+          "id": "item-4-3",
+          "name": "Aquatics Verification & Church Keys",
+          "description": "Verify scouts participating in Aquatics activities are certified swimmers. Obtain church keys from Scoutmaster if meeting there (to open restrooms and gear storage in room 2).",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "id": "sub-5",
+      "name": "Event Check-in",
+      "items": [
+        {
+          "id": "item-5-1",
+          "name": "Attendance & Parent Collection",
+          "description": "Work with SIC to verify presence of RSVP'd scouts (call missing scouts). Collect permission slips, waivers, and printed Medical Forms (A, B1, B2, and Form C if 72+ hours).",
+          "checked": false
+        },
+        {
+          "id": "item-5-2",
+          "name": "Gear, Fuel & Safety Verification",
+          "description": "Bring printed campfire permit and First Aid kit. Remind SIC to check patrol boxes, gear, and stove fuel.",
+          "checked": false
+        },
+        {
+          "id": "item-5-3",
+          "name": "Final Departure Checklist",
+          "description": "Ensure all scouts are present/assigned to vehicles, forms collected, and items packed before departure. Coordinate driving directions and driver list.",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "id": "sub-6",
+      "name": "During the Event",
+      "items": [
+        {
+          "id": "item-6-1",
+          "name": "Travel & Logistics",
+          "description": "Travel in Class A uniforms. Distribute hiking maps if necessary. Assist as a driver and attend the outing.",
+          "checked": false
+        },
+        {
+          "id": "item-6-2",
+          "name": "Supervision & Leadership Coaching",
+          "description": "Remind SIC to direct pack lines, fall-ins, campsite selection, and loading/unloading. Monitor headcount, enforce 'Nobody Walks Alone', and take pictures.",
+          "checked": false
+        },
+        {
+          "id": "item-6-3",
+          "name": "Campfire Participation",
+          "description": "Be prepared with a Scoutmaster minute at the campfire.",
+          "checked": false
+        }
+      ]
+    },
+    {
+      "id": "sub-7",
+      "name": "After the Event",
+      "items": [
+        {
+          "id": "item-7-1",
+          "name": "Wrap-Up & Departure Checks",
+          "description": "Ensure SIC completes Leave No Trace sweep before leaving. Remind SIC to close with Roses, Buds, and Thorns. Ensure return travel in Class A uniforms.",
+          "checked": false
+        },
+        {
+          "id": "item-7-2",
+          "name": "Forms & Media Management",
+          "description": "Return medical forms to scouts. Get shared drive folder link from SM for photo uploads and encourage photo submissions.",
+          "checked": false
+        },
+        {
+          "id": "item-7-3",
+          "name": "Feedback & Attendance Tracking",
+          "description": "Provide feedback to SM and ASMs on learnings. Confirm attendance with SM and Troop Scribe so scouts receive credit.",
+          "checked": false
+        }
+      ]
+    }
+  ]
+}
