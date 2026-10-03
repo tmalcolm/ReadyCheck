@@ -939,3 +939,202 @@ html, body {
   color: var(--text-secondary);
 }
 
+/* ==========================================================================
+   Print Stylesheet (Formatted Checklist Print View)
+   ========================================================================== */
+@media print {
+  @page {
+    margin: 12mm 15mm 15mm 15mm;
+    size: auto;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide unneeded UI Chrome */
+  #splash-screen,
+  .app-header,
+  .view-header-bar,
+  #screen-main,
+  #screen-edit,
+  .modal-overlay,
+  #toast-container,
+  .main-footer,
+  .auto-save-badge,
+  .splash-loader {
+    display: none !important;
+  }
+
+  /* Layout Containers */
+  #app {
+    display: block !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  #screen-view {
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    animation: none !important;
+  }
+
+  /* Title & Progress Header */
+  .view-title-container {
+    display: flex !important;
+    align-items: baseline !important;
+    justify-content: space-between !important;
+    border-bottom: 2px solid #0f172a !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .view-checklist-title {
+    font-size: 20pt !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    margin: 0 !important;
+  }
+
+  .progress-bar-container {
+    height: 8px !important;
+    background-color: #e2e8f0 !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 4px !important;
+    margin-bottom: 4px !important;
+    overflow: hidden !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .progress-bar-fill {
+    background-color: #0284c7 !important;
+    background: #0284c7 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .progress-text {
+    font-size: 9pt !important;
+    color: #475569 !important;
+    font-weight: 600 !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* Sublists & Items */
+  #view-sublists-container {
+    margin-top: 12px !important;
+  }
+
+  .sublist-card {
+    background-color: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 6px !important;
+    margin-bottom: 14px !important;
+    box-shadow: none !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .sublist-header {
+    background-color: #f1f5f9 !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
+    font-size: 11pt !important;
+    font-weight: 700 !important;
+    padding: 6px 12px !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .sublist-count {
+    color: #475569 !important;
+    font-size: 9pt !important;
+    font-weight: 600 !important;
+  }
+
+  .checklist-item-row {
+    padding: 6px 12px !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    background-color: transparent !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .checklist-item-row:last-child {
+    border-bottom: none !important;
+  }
+
+  /* Checkboxes */
+  .item-checkbox {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
+    border: 1.5px solid #334155 !important;
+    border-radius: 3px !important;
+    background-color: #ffffff !important;
+    margin-top: 2px !important;
+    position: relative !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .item-checkbox:checked {
+    background-color: #0f172a !important;
+    border-color: #0f172a !important;
+  }
+
+  .item-checkbox:checked::after {
+    content: '' !important;
+    position: absolute !important;
+    left: 4px !important;
+    top: 1px !important;
+    width: 4px !important;
+    height: 8px !important;
+    border: solid #ffffff !important;
+    border-width: 0 2px 2px 0 !important;
+    transform: rotate(45deg) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .item-details {
+    gap: 1px !important;
+  }
+
+  .item-name {
+    font-size: 10pt !important;
+    font-weight: 600 !important;
+    color: #0f172a !important;
+  }
+
+  .checklist-item-row.checked .item-name {
+    color: #64748b !important;
+    text-decoration: line-through !important;
+  }
+
+  .item-description {
+    font-size: 8.5pt !important;
+    color: #475569 !important;
+  }
+
+  .checklist-item-row.checked .item-description {
+    color: #94a3b8 !important;
+  }
+}
+

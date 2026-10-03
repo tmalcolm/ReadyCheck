@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnViewEdit = document.getElementById('btn-view-edit');
   const btnViewCopy = document.getElementById('btn-view-copy');
   const btnViewShare = document.getElementById('btn-view-share');
+  const btnViewPrint = document.getElementById('btn-view-print');
   const btnViewReset = document.getElementById('btn-view-reset');
   const autoSaveBadge = document.getElementById('auto-save-badge');
 
@@ -152,6 +153,13 @@ document.addEventListener('DOMContentLoaded', () => {
     btnViewShare.addEventListener('click', () => {
       if (currentChecklist) BluetoothShare.shareChecklist(currentChecklist, showToast);
     });
+    if (btnViewPrint) {
+      btnViewPrint.addEventListener('click', () => {
+        if (currentChecklist) {
+          window.print();
+        }
+      });
+    }
     btnViewReset.addEventListener('click', resetViewChecklistItems);
 
     // Edit Screen Buttons
@@ -232,10 +240,10 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
           </div>
           <div class="card-actions">
-            <!-- Graphical Share Icon Button for Bluetooth / System Share -->
-            <button class="btn-icon btn-share" title="Share via Bluetooth" data-action="share" data-id="${list.id}">
+            <!-- Graphical Export Icon Button -->
+            <button class="btn-icon btn-share" title="Export" data-action="share" data-id="${list.id}">
               <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1M12 15V3m0 0L8 7m4-4l4 4"></path>
               </svg>
             </button>
             <!-- Copy Icon -->
