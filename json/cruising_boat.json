@@ -1,6 +1,7 @@
 {
   "id": "cruising-boat-default",
   "title": "Cruising Boat Checklist",
+  "versionNumber": 2,
   "createdAt": "2026-01-01T00:00:00.000Z",
   "updatedAt": "2026-08-25T12:00:00.000Z",
   "sublists": [

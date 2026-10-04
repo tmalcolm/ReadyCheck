@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnModalConfirmCancel = document.getElementById('btn-modal-confirm-cancel');
   const btnModalConfirmAction = document.getElementById('btn-modal-confirm-action');
   let modalConfirmCallback = null;
+  let modalCancelCallback = null;
 
   // Theme Toggle & Network Status
   const btnThemeToggle = document.getElementById('btn-theme-toggle');
@@ -79,17 +80,61 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     updateNetworkStatus();
+    bindEvents();
 
     // Load all checklists from the json folder when app starts
     await Storage.loadJsonFolderChecklists();
 
-    // Hide Splash Screen after brief load delay
+    // Check online versions after splash page load but before main page loads if app is online
+    if (navigator.onLine) {
+      await checkVersionUpdates();
+    }
+
+    // Hide Splash Screen after load delay
     setTimeout(() => {
       splashScreen.classList.add('hidden');
       renderMainScreen();
-    }, 900);
+    }, 600);
+  }
 
-    bindEvents();
+  /* ==========================================================================
+     Version Check Logic (Default Checklists Online Version vs Local Version)
+     ========================================================================== */
+  async function checkVersionUpdates() {
+    if (!navigator.onLine) return;
+
+    try {
+      const updates = await Storage.checkOnlineDefaultChecklistVersions();
+      if (updates && updates.length > 0) {
+        // Hide splash screen so user can interact with the update prompt
+        splashScreen.classList.add('hidden');
+        renderMainScreen();
+
+        for (const update of updates) {
+          const title = 'Checklist Update Available';
+          const msg = `A new version (v${update.onlineVersion}) of "${update.onlineChecklist.title}" is available online. Your local version is v${update.localVersion}.\n\nWould you like to download and replace your older local version?`;
+
+          const userConfirmed = await new Promise((resolve) => {
+            showModalConfirm(
+              title,
+              msg,
+              () => resolve(true),
+              'Download Update',
+              'btn-primary',
+              () => resolve(false)
+            );
+          });
+
+          if (userConfirmed) {
+            Storage.replaceLocalChecklist(update.onlineChecklist);
+            showToast(`Downloaded & updated "${update.onlineChecklist.title}" to version ${update.onlineVersion}`, 'success');
+            renderMainScreen();
+          }
+        }
+      }
+    } catch (err) {
+      console.warn('Error during online version check:', err);
+    }
   }
 
   /* ==========================================================================
@@ -168,10 +213,15 @@ document.addEventListener('DOMContentLoaded', () => {
     btnDiscardEdit.addEventListener('click', promptDiscardEditChanges);
 
     // Confirmation Modal Buttons
-    btnModalConfirmCancel.addEventListener('click', closeModal);
-    btnModalConfirmAction.addEventListener('click', () => {
-      if (modalConfirmCallback) modalConfirmCallback();
+    btnModalConfirmCancel.addEventListener('click', () => {
+      const cb = modalCancelCallback;
       closeModal();
+      if (cb) cb();
+    });
+    btnModalConfirmAction.addEventListener('click', () => {
+      const cb = modalConfirmCallback;
+      closeModal();
+      if (cb) cb();
     });
   }
 
@@ -710,16 +760,24 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/'/g, '&#039;');
   }
 
-  function showModalConfirm(title, message, onConfirm) {
+  function showModalConfirm(title, message, onConfirm, confirmText = 'Confirm', confirmClass = 'btn-danger', onCancel = null) {
     modalConfirmTitle.textContent = title;
     modalConfirmMsg.textContent = message;
     modalConfirmCallback = onConfirm;
+    modalCancelCallback = onCancel;
+
+    if (btnModalConfirmAction) {
+      btnModalConfirmAction.textContent = confirmText;
+      btnModalConfirmAction.className = `btn ${confirmClass}`;
+    }
+
     modalConfirm.classList.add('active');
   }
 
   function closeModal() {
     modalConfirm.classList.remove('active');
     modalConfirmCallback = null;
+    modalCancelCallback = null;
   }
 
   function showToast(message, type = 'info') {

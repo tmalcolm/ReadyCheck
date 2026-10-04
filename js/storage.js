@@ -19,14 +19,132 @@ const Storage = {
    * Known list of JSON files in the json/ folder (used as fallback if index.json fetch fails)
    */
   jsonFiles: [
+    'adult_in_charge_checklist.json',
     'cruising_boat.json',
     'pegasus_aftdeck.json',
     'pegasus_foredeck.json',
     'pegasus_helm.json',
     'pegasus_master_list_all_stations.json',
     'pegasus_port_winch.json',
-    'pegasus_starboard_winch.json'
+    'pegasus_starboard_winch.json',
+    'scout_in_charge_checklist.json'
   ],
+
+  /**
+   * Helper to compare version numbers (returns true if onlineVersion > localVersion)
+   */
+  isVersionGreater(vOnline, vLocal) {
+    const parse = (v) => String(v !== undefined && v !== null ? v : '1').split('.').map(n => parseInt(n, 10) || 0);
+    const onlineParts = parse(vOnline);
+    const localParts = parse(vLocal);
+    const maxLen = Math.max(onlineParts.length, localParts.length);
+    for (let i = 0; i < maxLen; i++) {
+      const o = onlineParts[i] || 0;
+      const l = localParts[i] || 0;
+      if (o > l) return true;
+      if (o < l) return false;
+    }
+    return false;
+  },
+
+  /**
+   * Check each locally stored default checklist against online checklist version (when online)
+   */
+  async checkOnlineDefaultChecklistVersions() {
+    if (typeof navigator !== 'undefined' && !navigator.onLine) {
+      return [];
+    }
+
+    const updates = [];
+    try {
+      let fileList = [...this.jsonFiles];
+      try {
+        const indexRes = await fetch(`json/index.json?t=${Date.now()}`, { cache: 'no-store' });
+        if (indexRes.ok) {
+          const files = await indexRes.json();
+          if (Array.isArray(files) && files.length > 0) {
+            files.forEach(f => {
+              if (!fileList.includes(f)) fileList.push(f);
+            });
+          }
+        }
+      } catch (err) {
+        console.warn('Could not fetch json/index.json for version check:', err);
+      }
+
+      const localLists = this.getAllChecklists();
+
+      for (const filename of fileList) {
+        try {
+          const path = filename.startsWith('json/') ? filename : `json/${filename}`;
+          const res = await fetch(`${path}?t=${Date.now()}`, { cache: 'no-store' });
+          if (res.ok) {
+            const onlineData = await res.json();
+            if (onlineData && (onlineData.title || onlineData.Title)) {
+              onlineData.title = onlineData.title || onlineData.Title;
+              onlineData.sublists = onlineData.sublists || onlineData.Sublists || [];
+              onlineData.versionNumber = onlineData.versionNumber || onlineData.VersionNumber || 1;
+
+              const localMatch = localLists.find(l =>
+                (onlineData.id && l.id === onlineData.id) ||
+                (l.title && onlineData.title && l.title.toLowerCase() === onlineData.title.toLowerCase())
+              );
+
+              if (localMatch) {
+                const localVersion = localMatch.versionNumber || localMatch.VersionNumber || 1;
+                if (this.isVersionGreater(onlineData.versionNumber, localVersion)) {
+                  updates.push({
+                    filename,
+                    localChecklist: localMatch,
+                    onlineChecklist: onlineData,
+                    localVersion,
+                    onlineVersion: onlineData.versionNumber
+                  });
+                }
+              }
+            }
+          }
+        } catch (e) {
+          console.warn(`Failed checking online checklist version for ${filename}:`, e);
+        }
+      }
+    } catch (e) {
+      console.error('Error checking online default checklist versions:', e);
+    }
+
+    return updates;
+  },
+
+  /**
+   * Replace a local checklist with new downloaded online version
+   */
+  replaceLocalChecklist(onlineChecklist) {
+    try {
+      const lists = this.getAllChecklists();
+      const existingIndex = lists.findIndex(l =>
+        (onlineChecklist.id && l.id === onlineChecklist.id) ||
+        (l.title && onlineChecklist.title && l.title.toLowerCase() === onlineChecklist.title.toLowerCase())
+      );
+
+      const updatedChecklist = {
+        ...onlineChecklist,
+        versionNumber: onlineChecklist.versionNumber || 1,
+        updatedAt: new Date().toISOString()
+      };
+
+      if (existingIndex >= 0) {
+        lists[existingIndex] = updatedChecklist;
+      } else {
+        lists.push(updatedChecklist);
+      }
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(lists));
+      return updatedChecklist;
+    } catch (e) {
+      console.error('Error replacing local checklist:', e);
+      throw e;
+    }
+  },
 
   /**
    * Initialize local storage, seeding with preloaded default checklists if missing
@@ -44,7 +162,15 @@ const Storage = {
       defaults.forEach(defaultList => {
         const exists = lists.some(l => l.id === defaultList.id || l.title.toLowerCase() === defaultList.title.toLowerCase());
         if (!exists) {
-          lists.push(defaultList);
+          lists.push({ ...defaultList, versionNumber: defaultList.versionNumber || 1 });
+          updated = true;
+        }
+      });
+
+      // Ensure every stored list has a default versionNumber if missing
+      lists.forEach(l => {
+        if (l.versionNumber === undefined || l.versionNumber === null) {
+          l.versionNumber = 1;
           updated = true;
         }
       });
@@ -85,9 +211,9 @@ const Storage = {
           if (res.ok) {
             const data = await res.json();
             if (data && (data.title || data.Title) && (Array.isArray(data.sublists) || Array.isArray(data.Sublists))) {
-              // Normalize title and sublists structure if needed
               data.title = data.title || data.Title;
               data.sublists = data.sublists || data.Sublists || [];
+              data.versionNumber = data.versionNumber || data.VersionNumber || 1;
               fetchedLists.push(data);
             }
           }
@@ -113,7 +239,14 @@ const Storage = {
       fetchedLists.forEach(checklist => {
         const exists = lists.some(l => l.id === checklist.id || l.title.toLowerCase() === checklist.title.toLowerCase());
         if (!exists) {
-          lists.push(checklist);
+          lists.push({ ...checklist, versionNumber: checklist.versionNumber || 1 });
+          updated = true;
+        }
+      });
+
+      lists.forEach(l => {
+        if (l.versionNumber === undefined || l.versionNumber === null) {
+          l.versionNumber = 1;
           updated = true;
         }
       });
@@ -154,6 +287,7 @@ const Storage = {
           if (res.ok) {
             const data = await res.json();
             if (data && data.title && Array.isArray(data.sublists)) {
+              data.versionNumber = data.versionNumber || data.VersionNumber || 1;
               fetchedLists.push(data);
             }
           }

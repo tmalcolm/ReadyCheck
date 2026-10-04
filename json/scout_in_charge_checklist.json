@@ -1,6 +1,7 @@
 {
   "id": "sic-checklist-default",
   "title": "Scout-in-Charge (SIC) Checklist",
+  "versionNumber": 1,
   "createdAt": "2026-10-02T00:00:00.000Z",
   "updatedAt": "2026-10-02T00:00:00.000Z",
   "sublists": [
