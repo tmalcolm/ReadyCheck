@@ -35,7 +35,7 @@
         {
           "id": "item-2-1",
           "name": "Mentor the Scout-in-Charge (SIC)",
-          "description": "As soon as PLC appoints SIC, mentor them as they plan (always cc: parent on electronic communication; biweekly check-ins, meeting prep reminders). Ask SM if unsure who SIC is.",
+          "description": "As soon as PLC appoints SIC, mentor them as they plan (always cc: parent on electronic communication; biweekly check-ins, meeting prep reminders). Ask SM if unsure who SIC is. Use TWH for email as it automatically copies a parent.",
           "checked": false
         },
         {
@@ -46,8 +46,8 @@
         },
         {
           "id": "item-2-3",
-          "name": "Verify Position Training",
-          "description": "Be Position Trained as Assistant Scoutmaster (ASM).",
+          "name": "Adult Leadership & Training Verification",
+          "description": "Identify adult leadership to ensure two-deep leadership throughout (including one female ASM). Ensure adults have required training (YPT, Hazardous Weather, Safe Swim, Safety Afloat, CPR/First Aid, WFA, etc.).",
           "checked": false
         }
       ]
@@ -64,26 +64,50 @@
         },
         {
           "id": "item-3-2",
-          "name": "Adult Leadership & Training Verification",
-          "description": "Identify adult leadership to ensure two-deep leadership throughout (including one female ASM). Ensure adults have required training (YPT, Hazardous Weather, Safe Swim, Safety Afloat, CPR/First Aid, WFA, etc.).",
+          "name": "When appropriate, remind the SIC to encourage further sign ups.",
+          "description": "",
           "checked": false
         },
         {
           "id": "item-3-3",
-          "name": "Schedule Pack/Equipment Check",
-          "description": "Schedule equipment checks if necessary. Conduct pack checks with ASMs (can book Summit Room at Sports Basement Sunnyvale or REI Saratoga: Andrew Merg 408-871-8765 Amerg@REI.com).",
+          "name": "Follow up on adult leadership if needed.",
+          "description": "Follow up with the adult leaders for the event and make sure they are still available and have completed the apporpriate training.",
           "checked": false
         },
         {
           "id": "item-3-4",
+          "name": "Set a sign up deadline on TWH if there is not one already.",
+          "description": "Work with the SIC to determine the best cut off date"",
+          "checked": false
+        },
+        {
+          "id": "item-3-5",
+          "name": "Schedule Pack/Equipment Check",
+          "description": "Schedule equipment checks if necessary. Conduct pack checks with ASMs (can book Summit Room at Sports Basement Sunnyvale or REI Saratoga. Contact the store for more information.).",
+          "checked": false
+        },
+        {
+          "id": "item-3-6",
+          "name": "Logistics Spreadsheet",
+          "description": "Make a copy of the Logistics Spreadsheet template (from the Troop Google drive) and begin filling out the information.",
+          "checked": false
+        },
+        {
+          "id": "item-3-7",
           "name": "Permits, Travel Route & Driver Signups",
           "description": "Obtain fire permit if required. Start requesting driver signups, plan travel route, and prepare maps/driving instructions for outing day.",
           "checked": false
         },
         {
-          "id": "item-3-5",
+          "id": "item-3-8",
           "name": "Medical Forms & Roster Preparation",
-          "description": "Remind everyone that printed hard copies of medical forms are required (Form C for 72+ hr outings). Utilize TEMPLATE for driver signups, pack checks, roster, dietary needs, and meal planning.",
+          "description": "Unless this is an out of council activity (i.e. Chawanakee) remind parents that we will be using Camp Doc and that their scout’s profile needs to be complete. For outings over 72 hours, they must upload the signed Form C. Check with our medical records volunteer to verify that forms are complete. If paper forms are required, remind parents to fill them out (including Form C if required).",
+          "checked": false
+        },
+        {
+          "id": "item-3-9",
+          "name": "Aquatics Verification & Church Keys",
+          "description": "Verify scouts participating in Aquatics activities are certified swimmers. Obtain church keys from Scoutmaster if meeting there (to open restrooms and gear storage in room 2).",
           "checked": false
         }
       ]
@@ -106,8 +130,8 @@
         },
         {
           "id": "item-4-3",
-          "name": "Aquatics Verification & Church Keys",
-          "description": "Verify scouts participating in Aquatics activities are certified swimmers. Obtain church keys from Scoutmaster if meeting there (to open restrooms and gear storage in room 2).",
+          "name": "Complete and share Logistics Spreadsheet",
+          "description": "Make sure all the information on the Logistics Spreadsheet is complete and share the spreadsheet with the SiC and all adult leaders.",
           "checked": false
         }
       ]
@@ -131,7 +155,7 @@
         {
           "id": "item-5-3",
           "name": "Final Departure Checklist",
-          "description": "Ensure all scouts are present/assigned to vehicles, forms collected, and items packed before departure. Coordinate driving directions and driver list.",
+          "description": "Ensure all scouts are present/assigned to vehicles, forms collected, and items packed before departure. Distrube parking permits as needed. Coordinate driving directions and driver list.",
           "checked": false
         }
       ]
@@ -178,8 +202,14 @@
         },
         {
           "id": "item-7-3",
-          "name": "Feedback & Attendance Tracking",
-          "description": "Provide feedback to SM and ASMs on learnings. Confirm attendance with SM and Troop Scribe so scouts receive credit.",
+          "name": "Attendance Tracking",
+          "description": "Update attendance on TWH so scouts receive credit.",
+          "checked": false
+        },
+        {
+          "id": "item-7-4",
+          "name": "Feedback",
+          "description": "Update outing description on TWH to include any information that would be useful to someone planning the same outing in the future.",
           "checked": false
         }
       ]
