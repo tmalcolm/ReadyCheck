@@ -1,6 +1,6 @@
 # ReadyCheck Checklist Progressive Web App (PWA)
 
-A fully responsive, offline-first Progressive Web App (PWA) built with HTML5, Vanilla CSS3, and ES6+ JavaScript. Designed for mobile and desktop devices, pre-loaded with a comprehensive **Cruising Boat Checklist**, supporting instant auto-save to LocalStorage and Bluetooth file sharing via the Web Share API.
+A fully responsive, offline-first Progressive Web App (PWA) built with HTML5, Vanilla CSS3, and ES6+ JavaScript. Designed for mobile and desktop devices, pre-loaded with a comprehensive **Cruising Boat Checklist**, supporting instant auto-save to LocalStorage and file sharing via Import/Export functionality.
 
 ## Features
 
