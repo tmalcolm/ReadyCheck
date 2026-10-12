@@ -1,5 +1,6 @@
 [
   "adult_in_charge_checklist.json",
+  "cruising_boat.json",
   "scout_in_charge_checklist.json",
   "pegasus_aftdeck.json",
   "pegasus_foredeck.json",
@@ -8,3 +9,4 @@
   "pegasus_port_winch.json",
   "pegasus_starboard_winch.json"
 ]
+

@@ -100,8 +100,11 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
      Version Check Logic (Default Checklists Online Version vs Local Version)
      ========================================================================== */
-  async function checkVersionUpdates() {
-    if (!navigator.onLine) return;
+  async function checkVersionUpdates(interactive = false) {
+    if (!navigator.onLine) {
+      if (interactive) showToast('Cannot check for updates in offline mode', 'info');
+      return;
+    }
 
     try {
       const updates = await Storage.checkOnlineDefaultChecklistVersions();
@@ -126,14 +129,35 @@ document.addEventListener('DOMContentLoaded', () => {
           });
 
           if (userConfirmed) {
-            Storage.replaceLocalChecklist(update.onlineChecklist);
-            showToast(`Downloaded & updated "${update.onlineChecklist.title}" to version ${update.onlineVersion}`, 'success');
+            // Download update, update local CacheStorage, and replace local storage
+            const updated = await Storage.replaceLocalChecklist(update.onlineChecklist, update.filename);
+
+            // Reload active checklist in local cache / application state
+            if (currentChecklist && (
+              (updated.id && currentChecklist.id === updated.id) ||
+              (currentChecklist.title && updated.title && currentChecklist.title.toLowerCase() === updated.title.toLowerCase())
+            )) {
+              currentChecklist = Storage.getChecklistById(updated.id) || updated;
+              if (activeScreen === 'view') {
+                renderViewScreen();
+              } else if (activeScreen === 'edit') {
+                editDraft = JSON.parse(JSON.stringify(currentChecklist));
+                renderEditScreen();
+              }
+            }
+
+            // Reload and re-render main screen
             renderMainScreen();
+
+            showToast(`Downloaded, updated cache & reloaded "${updated.title}" (v${update.onlineVersion})`, 'success');
           }
         }
+      } else if (interactive) {
+        showToast('All checklists are up to date! (Cache verified)', 'info');
       }
     } catch (err) {
       console.warn('Error during online version check:', err);
+      if (interactive) showToast('Failed checking for online updates', 'error');
     }
   }
 
@@ -145,6 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('online', () => {
       updateNetworkStatus();
       showToast('Back online', 'success');
+      checkVersionUpdates(false);
     });
 
     window.addEventListener('offline', () => {
@@ -179,6 +204,14 @@ document.addEventListener('DOMContentLoaded', () => {
         );
       });
     }
+
+    const btnCheckUpdates = document.getElementById('btn-check-updates');
+    if (btnCheckUpdates) {
+      btnCheckUpdates.addEventListener('click', () => {
+        checkVersionUpdates(true);
+      });
+    }
+
     fileImportInput.addEventListener('change', handleFileImport);
 
     // View Screen Buttons
@@ -282,7 +315,10 @@ document.addEventListener('DOMContentLoaded', () => {
       card.innerHTML = `
         <div class="card-header">
           <div>
-            <h3 class="card-title">${escapeHTML(list.title)}</h3>
+            <h3 class="card-title">
+              ${escapeHTML(list.title)}
+              <span class="badge-version">v${list.versionNumber || 1}</span>
+            </h3>
             <div class="card-meta">
               <span>${list.sublists.length} section${list.sublists.length === 1 ? '' : 's'}</span>
               <span>•</span>
@@ -409,7 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderViewScreen() {
     if (!currentChecklist) return;
 
-    viewTitle.textContent = currentChecklist.title;
+    viewTitle.innerHTML = `${escapeHTML(currentChecklist.title)} <span class="badge-version">v${currentChecklist.versionNumber || 1}</span>`;
     const stats = calculateChecklistStats(currentChecklist);
     viewProgressFill.style.width = `${stats.percent}%`;
     viewProgressText.textContent = `${stats.checked} of ${stats.total} completed (${stats.percent}%)`;

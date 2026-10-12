@@ -116,9 +116,150 @@ const Storage = {
   },
 
   /**
-   * Replace a local checklist with new downloaded online version
+   * Helper to map a checklist to its corresponding file in the json/ directory
    */
-  replaceLocalChecklist(onlineChecklist) {
+  findFilenameForChecklist(checklist) {
+    if (!checklist) return null;
+    const titleLower = (checklist.title || '').toLowerCase();
+    const id = checklist.id || '';
+
+    if (id === 'aic-checklist-default' || titleLower.includes('adult-in-charge') || titleLower.includes('aic')) {
+      return 'adult_in_charge_checklist.json';
+    }
+    if (id === 'sic-checklist-default' || titleLower.includes('scout-in-charge') || titleLower.includes('sic')) {
+      return 'scout_in_charge_checklist.json';
+    }
+    if (id === 'cruising-boat-default' || titleLower.includes('cruising boat')) {
+      return 'cruising_boat.json';
+    }
+    if (id === 'pegasus-aft-deck' || titleLower.includes('aft deck')) {
+      return 'pegasus_aftdeck.json';
+    }
+    if (id === 'pegasus-fore-deck' || titleLower.includes('fore deck')) {
+      return 'pegasus_foredeck.json';
+    }
+    if (id === 'pegasus-helm' || titleLower.includes('helm')) {
+      return 'pegasus_helm.json';
+    }
+    if (id === 'pegasus-master' || titleLower.includes('master list')) {
+      return 'pegasus_master_list_all_stations.json';
+    }
+    if (id === 'pegasus-port-winch' || titleLower.includes('port winch')) {
+      return 'pegasus_port_winch.json';
+    }
+    if (id === 'pegasus-starboard-winch' || titleLower.includes('starboard winch')) {
+      return 'pegasus_starboard_winch.json';
+    }
+
+    for (const f of this.jsonFiles) {
+      const cleanName = f.replace('.json', '').replace(/_/g, ' ').toLowerCase();
+      if (titleLower.includes(cleanName) || cleanName.includes(titleLower)) {
+        return f;
+      }
+    }
+    return null;
+  },
+
+  /**
+   * Update browser CacheStorage and Service Worker cache with newly downloaded checklist version
+   */
+  async updateCache(filename, checklistData) {
+    if (!filename || !checklistData) return;
+    const jsonStr = typeof checklistData === 'string' ? checklistData : JSON.stringify(checklistData, null, 2);
+    const baseFilename = filename.replace(/^(\.\/|\/|json\/)+/, '');
+
+    // 1. Post message to active Service Worker
+    if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator && navigator.serviceWorker.controller) {
+      try {
+        navigator.serviceWorker.controller.postMessage({
+          type: 'UPDATE_CHECKLIST_CACHE',
+          filename: baseFilename,
+          data: checklistData
+        });
+      } catch (err) {
+        console.warn('[Storage] PostMessage to ServiceWorker failed:', err);
+      }
+    }
+
+    // 2. Directly update CacheStorage via Window Cache API
+    if (typeof caches !== 'undefined') {
+      try {
+        const cacheNames = await caches.keys();
+        const targetPaths = [
+          baseFilename,
+          `./${baseFilename}`,
+          `json/${baseFilename}`,
+          `./json/${baseFilename}`,
+          `/json/${baseFilename}`
+        ];
+
+        try {
+          const loc = window.location.href.split('?')[0].split('#')[0];
+          const dir = loc.substring(0, loc.lastIndexOf('/') + 1);
+          targetPaths.push(new URL(`json/${baseFilename}`, dir).href);
+          targetPaths.push(new URL(baseFilename, dir).href);
+        } catch (e) {}
+
+        const uniquePaths = [...new Set(targetPaths)];
+
+        for (const cacheName of cacheNames) {
+          const cache = await caches.open(cacheName);
+          for (const path of uniquePaths) {
+            try {
+              const response = new Response(jsonStr, {
+                status: 200,
+                statusText: 'OK',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Content-Length': String(new Blob([jsonStr]).size)
+                }
+              });
+              await cache.put(path, response);
+            } catch (putErr) {
+              // Ignore invalid request keys for cache.put
+            }
+          }
+        }
+        console.log(`[Storage] Local CacheStorage successfully updated with new version of ${baseFilename}`);
+      } catch (cacheErr) {
+        console.warn('[Storage] Error updating window CacheStorage:', cacheErr);
+      }
+    }
+  },
+
+  /**
+   * Synchronize in-memory preloaded defaults with downloaded checklist
+   */
+  updateInMemoryDefaults(updatedChecklist) {
+    if (!updatedChecklist) return;
+    try {
+      if (typeof PRELOADED_CHECKLISTS !== 'undefined' && Array.isArray(PRELOADED_CHECKLISTS)) {
+        const idx = PRELOADED_CHECKLISTS.findIndex(p =>
+          (updatedChecklist.id && p.id === updatedChecklist.id) ||
+          (p.title && updatedChecklist.title && p.title.toLowerCase() === updatedChecklist.title.toLowerCase())
+        );
+        if (idx >= 0) {
+          PRELOADED_CHECKLISTS[idx] = JSON.parse(JSON.stringify(updatedChecklist));
+        }
+      }
+
+      if (typeof CRUISING_BOAT_CHECKLIST !== 'undefined') {
+        if (
+          (updatedChecklist.id && CRUISING_BOAT_CHECKLIST.id === updatedChecklist.id) ||
+          (CRUISING_BOAT_CHECKLIST.title && updatedChecklist.title && CRUISING_BOAT_CHECKLIST.title.toLowerCase() === updatedChecklist.title.toLowerCase())
+        ) {
+          Object.assign(CRUISING_BOAT_CHECKLIST, JSON.parse(JSON.stringify(updatedChecklist)));
+        }
+      }
+    } catch (e) {
+      console.warn('Could not update in-memory defaults:', e);
+    }
+  },
+
+  /**
+   * Replace a local checklist with new downloaded online version, updating CacheStorage & local storage
+   */
+  async replaceLocalChecklist(onlineChecklist, filename = null) {
     try {
       const lists = this.getAllChecklists();
       const existingIndex = lists.findIndex(l =>
@@ -126,9 +267,13 @@ const Storage = {
         (l.title && onlineChecklist.title && l.title.toLowerCase() === onlineChecklist.title.toLowerCase())
       );
 
+      const existing = existingIndex >= 0 ? lists[existingIndex] : null;
       const updatedChecklist = {
         ...onlineChecklist,
-        versionNumber: onlineChecklist.versionNumber || 1,
+        id: onlineChecklist.id || (existing ? existing.id : this.generateId('checklist')),
+        versionNumber: onlineChecklist.versionNumber !== undefined && onlineChecklist.versionNumber !== null
+          ? onlineChecklist.versionNumber
+          : (existing && existing.versionNumber ? existing.versionNumber : 1),
         updatedAt: new Date().toISOString()
       };
 
@@ -139,6 +284,16 @@ const Storage = {
       }
 
       localStorage.setItem(STORAGE_KEY, JSON.stringify(lists));
+
+      // Synchronize in-memory global defaults
+      this.updateInMemoryDefaults(updatedChecklist);
+
+      // Update local CacheStorage for this checklist
+      const resolvedFilename = filename || this.findFilenameForChecklist(updatedChecklist);
+      if (resolvedFilename) {
+        await this.updateCache(resolvedFilename, updatedChecklist);
+      }
+
       return updatedChecklist;
     } catch (e) {
       console.error('Error replacing local checklist:', e);
@@ -215,6 +370,8 @@ const Storage = {
               data.sublists = data.sublists || data.Sublists || [];
               data.versionNumber = data.versionNumber || data.VersionNumber || 1;
               fetchedLists.push(data);
+              // Update local CacheStorage for this checklist
+              this.updateCache(filename, data);
             }
           }
         } catch (e) {
@@ -289,6 +446,8 @@ const Storage = {
             if (data && data.title && Array.isArray(data.sublists)) {
               data.versionNumber = data.versionNumber || data.VersionNumber || 1;
               fetchedLists.push(data);
+              // Update local CacheStorage for this checklist
+              this.updateCache(filename, data);
             }
           }
         } catch (e) {}
@@ -460,11 +619,19 @@ const Storage = {
 
       const sublists = data.sublists || data.Sublists || [];
 
+      // Check if an existing checklist matches
+      const lists = this.getAllChecklists();
+      const existing = lists.find(l => (data.id && l.id === data.id) || (l.title && l.title.toLowerCase() === title.trim().toLowerCase()));
+
+      const checklistId = (data.id && String(data.id).trim()) ? String(data.id).trim() : (existing ? existing.id : this.generateId('checklist'));
+      const versionNumber = data.versionNumber || data.VersionNumber || (existing && existing.versionNumber ? existing.versionNumber : 1);
+
       // Ensure proper structure
       const newChecklist = {
-        id: this.generateId('checklist'),
+        id: checklistId,
         title: title.trim(),
-        createdAt: data.createdAt || data.CreatedAt || new Date().toISOString(),
+        versionNumber: versionNumber,
+        createdAt: data.createdAt || data.CreatedAt || (existing ? existing.createdAt : new Date().toISOString()),
         updatedAt: new Date().toISOString(),
         sublists: Array.isArray(sublists) ? sublists.map(sub => {
           const subName = sub.name || sub.Name || sub.title || sub.Title || '';
@@ -487,7 +654,13 @@ const Storage = {
         }) : []
       };
 
-      return this.saveChecklist(newChecklist);
+      const saved = this.saveChecklist(newChecklist);
+      this.updateInMemoryDefaults(saved);
+      const filename = this.findFilenameForChecklist(saved);
+      if (filename) {
+        this.updateCache(filename, saved);
+      }
+      return saved;
     } catch (err) {
       console.error('Import validation failed:', err);
       throw new Error(`Failed to import checklist: ${err.message}`);

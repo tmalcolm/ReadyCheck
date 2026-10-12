@@ -51,7 +51,13 @@ The **Bluetooth Checklist Progressive Web App (PWA)** has been built using HTML5
 - Network status badge in header (`Online` / `Offline Mode`).
 - Detects `online` and `offline` network state transitions dynamically.
 
-### 7. Bluetooth & File Sharing Integration
+### 7. Automatic Cache Updating & Checklist Reloading
+- **Online Version Detection**: Compares local version numbers against server JSON version numbers at startup and when network transitions back online.
+- **CacheStorage Synchronization**: When a newer version of a checklist is downloaded, `Storage.updateCache` immediately updates the browser's CacheStorage (`caches.open`) and dispatches a message (`UPDATE_CHECKLIST_CACHE`) to the Service Worker so offline caches are updated.
+- **Active State Reload**: The application reloads the updated checklist in memory and automatically re-renders both the main card list and active view/edit screens with the new version badge (`v1`, `v2`, etc.).
+- **Manual Trigger**: Added a **"🔄 Check Updates"** button in the main screen toolbar to allow instant on-demand version checking, cache updating, and reloading.
+
+### 8. Bluetooth & File Sharing Integration
 - Graphical Share icon on each card and on the view screen.
 - Calls Web Share API (`navigator.share`) on Android with a `.json` File attachment. On Android, selecting **Bluetooth** or **Quick Share** from the native share sheet directly transmits the checklist over Bluetooth.
 - Fallback file download and JSON import handler to load received `.json` files.
@@ -63,19 +69,25 @@ The **Bluetooth Checklist Progressive Web App (PWA)** has been built using HTML5
 | File Path | Description |
 | :--- | :--- |
 | [index.html](file:///c:/Users/pyjam/.gemini/antigravity-ide/scratch/checklist/index.html) | HTML5 shell containing splash screen, main screen, view screen, edit screen, and modals. |
-| [css/styles.css](file:///c:/Users/pyjam/.gemini/antigravity-ide/scratch/checklist/css/styles.css) | Custom CSS design system, dark/light theme tokens, splash animation, glassmorphism cards. |
+| [css/styles.css](file:///c:/Users/pyjam/.gemini/antigravity-ide/scratch/checklist/css/styles.css) | Custom CSS design system, dark/light theme tokens, splash animation, version badges. |
 | [json/index.json](file:///c:/Users/pyjam/.gemini/antigravity-ide/scratch/checklist/json/index.json) | JSON manifest index listing all checklist files in the json directory. |
 | [json/cruising_boat.json](file:///c:/Users/pyjam/.gemini/antigravity-ide/scratch/checklist/json/cruising_boat.json) | JSON file for the preloaded Cruising Boat Checklist. |
-| [js/storage.js](file:///c:/Users/pyjam/.gemini/antigravity-ide/scratch/checklist/js/storage.js) | LocalStorage controller, startup JSON folder fetching, alphabetical sorting, JSON import/export. |
+| [js/storage.js](file:///c:/Users/pyjam/.gemini/antigravity-ide/scratch/checklist/js/storage.js) | LocalStorage controller, CacheStorage updater, version checking, and in-memory default sync. |
 | [js/bluetooth-share.js](file:///c:/Users/pyjam/.gemini/antigravity-ide/scratch/checklist/js/bluetooth-share.js) | Web Share API integration for Bluetooth transmission and JSON file download fallbacks. |
-| [js/app.js](file:///c:/Users/pyjam/.gemini/antigravity-ide/scratch/checklist/js/app.js) | Main UI controller handling splash screen fade out, screen transitions, drag & drop, and modals. |
+| [js/app.js](file:///c:/Users/pyjam/.gemini/antigravity-ide/scratch/checklist/js/app.js) | Main UI controller handling splash screen, screen transitions, cache reloads, and modals. |
 | [manifest.json](file:///c:/Users/pyjam/.gemini/antigravity-ide/scratch/checklist/manifest.json) | Web App Manifest for Android PWA installation. |
-| [sw.js](file:///c:/Users/pyjam/.gemini/antigravity-ide/scratch/checklist/sw.js) | Service Worker providing cache-first offline capability for app assets and JSON checklists. |
+| [sw.js](file:///c:/Users/pyjam/.gemini/antigravity-ide/scratch/checklist/sw.js) | Service Worker handling offline caching, message-based cache updates, and network fallbacks. |
 
 ---
 
 ## Verification & Testing
 
 1. Launch `start_server.ps1` (`http://localhost:8080`).
-2. All 7 checklists in `json/` (`Cruising Boat Checklist`, `Pegasus Aft Deck Checklists`, `Pegasus Fore Deck Checklists`, `Pegasus Helm Checklists`, `Pegasus Master List - All Stations`, `Pegasus Port Winch Checklists`, `Pegasus Starboard Winch Checklists`) automatically populate on app startup.
-3. Clicking "Restore Presets" re-fetches and restores all default checklists directly from the `json/` folder.
+2. All checklists in `json/` automatically populate on app startup with their version badges (`v1`, `v2`, etc.).
+3. Clicking **"🔄 Check Updates"** compares local version with online JSON files. If a new version exists, prompts the user to download.
+4. Upon confirmation:
+   - Downloads the new checklist.
+   - Updates local storage and writes the updated response into the browser CacheStorage (`caches`) and Service Worker cache.
+   - Immediately reloads the checklist in memory and re-renders the screen showing the new version.
+5. Clicking "Restore Presets" re-fetches and restores all default checklists directly from the `json/` folder and refreshes the cache.
+

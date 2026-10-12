@@ -1,4 +1,4 @@
-const CACHE_NAME = 'checklist-pwa-v7';
+const CACHE_NAME = 'checklist-pwa-v8';
 const ASSETS = [
   './',
   './index.html',
@@ -53,6 +53,43 @@ self.addEventListener('activate', (e) => {
   self.clients.claim();
 });
 
+// Message Event - Receive direct cache update from client application
+self.addEventListener('message', (e) => {
+  if (e.data && e.data.type === 'UPDATE_CHECKLIST_CACHE') {
+    const { filename, data } = e.data;
+    if (filename && data) {
+      const jsonStr = typeof data === 'string' ? data : JSON.stringify(data, null, 2);
+      const baseFilename = filename.replace(/^(\.\/|\/|json\/)+/, '');
+      const urlsToCache = [
+        `./json/${baseFilename}`,
+        `json/${baseFilename}`,
+        `/json/${baseFilename}`,
+        new URL(`json/${baseFilename}`, self.location.href).href
+      ];
+
+      caches.open(CACHE_NAME).then((cache) => {
+        return Promise.all(
+          urlsToCache.map((url) => {
+            const response = new Response(jsonStr, {
+              status: 200,
+              statusText: 'OK',
+              headers: {
+                'Content-Type': 'application/json',
+                'Content-Length': String(new Blob([jsonStr]).size)
+              }
+            });
+            return cache.put(url, response).catch(() => {});
+          })
+        );
+      }).then(() => {
+        console.log('[ServiceWorker] Cache successfully updated for:', baseFilename);
+      }).catch((err) => {
+        console.warn('[ServiceWorker] Failed to update cache:', err);
+      });
+    }
+  }
+});
+
 // Fetch Event - Network First for JSON data; Cache First for App Shell
 self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET') return;
@@ -67,11 +104,20 @@ self.addEventListener('fetch', (e) => {
           const responseToCache = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => {
             cache.put(e.request, responseToCache);
+            // Also store under clean path without query parameters
+            const cleanUrl = url.origin + url.pathname;
+            cache.put(cleanUrl, networkResponse.clone()).catch(() => {});
+            const relativePath = '.' + url.pathname;
+            cache.put(relativePath, networkResponse.clone()).catch(() => {});
           });
         }
         return networkResponse;
       }).catch(() => {
-        return caches.match(e.request);
+        return caches.match(e.request, { ignoreSearch: true }).then((cached) => {
+          if (cached) return cached;
+          const cleanUrl = url.origin + url.pathname;
+          return caches.match(cleanUrl, { ignoreSearch: true });
+        });
       })
     );
     return;
