@@ -1,4 +1,4 @@
-# Bluetooth Checklist Progressive Web App (PWA)
+# ReadyCheck Checklist Progressive Web App (PWA)
 
 A fully responsive, offline-first Progressive Web App (PWA) built with HTML5, Vanilla CSS3, and ES6+ JavaScript. Designed for mobile and desktop devices, pre-loaded with a comprehensive **Cruising Boat Checklist**, supporting instant auto-save to LocalStorage and Bluetooth file sharing via the Web Share API.
 
@@ -10,7 +10,7 @@ A fully responsive, offline-first Progressive Web App (PWA) built with HTML5, Va
 - **Interactive Viewing & Auto-Save**: Dynamic progress bars, instant LocalStorage persistence, and visual save state badges.
 - **Comprehensive Editing**: Add, edit, delete sublists and items with drag-and-drop reordering.
 - **100% Offline PWA Capability**: Powered by Service Worker (`sw.js`) and Web Manifest (`manifest.json`).
-- **Bluetooth & File Sharing**: Uses `navigator.share` on Android/mobile for direct Bluetooth/Quick Share `.json` file transmission, plus manual JSON import/export.
+- **Import/Export File Sharing**: Manual JSON import/export for file sharing accross devoces and platforms.
 
 ## Quick Start / Running Locally
 
